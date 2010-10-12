@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  metal:use-macro="context/@@groupserver_site_home_layout/page">
+  <head>
+    <title metal:fill-slot="title">
+      <span tal:replace="string:Group Homepage: ${view/siteInfo/name}"/>
+    </title>
+    <!--TODO: Metadata-->
+  </head>
+  <body>
+    <tal:block metal:fill-slot="body">
+      <h1>GroupHomepage</h1>
+      <p>
+        <strong>Welcome!</strong>
+      </p>
+    </tal:block>
+    <tal:block metal:fill-slot="javascript">
+    </tal:block>
+  </body>
+</html>
+

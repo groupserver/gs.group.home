@@ -4,13 +4,58 @@
   xmlns:rdb="http://namespaces.zope.org/rdb"
   xmlns:sqlos="http://namespaces.sqlobject.org/sqlos"
   xmlns:five="http://namespaces.zope.org/five">
+  <include package="zope.viewlet" file="meta.zcml" />
+  
+  <!--Info-->
+  <interface interface=".interfaces.IGroupHomepageInfo" />
+  <browser:viewletManager
+    name="groupserver.GroupHomepageInfoTabs"
+    permission="zope.Public"
+    provides=".interfaces.IGroupHomepageInfo"
+    class="gs.help.mgr.WeightOrderedViewletManager"/>
 
+  <browser:viewlet name="gs-group-home-about"
+    manager=".interfaces.IGroupHomepageInfo"
+    template="browser/templates/about.pt"
+    permission="zope.Public"
+    weight="0"
+    title="About" />
+
+  <browser:viewlet name="gs-group-home-members"
+    manager=".interfaces.IGroupHomepageInfo"
+    template="browser/templates/members.pt"
+    permission="zope.Public"
+    weight="1"
+    title="Members" />
+
+  <browser:viewlet name="gs-group-home-stats"
+    manager=".interfaces.IGroupHomepageInfo"
+    template="browser/templates/stats.pt"
+    permission="zope.Public"
+    weight="2"
+    title="Statistics" />
+
+  <browser:viewlet name="gs-group-home-privacy"
+    manager=".interfaces.IGroupHomepageInfo"
+    template="browser/templates/privacy.pt"
+    permission="zope.Public"
+    weight="3"
+    title="Privacy" />
+
+  <!--Tasks-->
+  <interface interface=".interfaces.IGroupHomepageTasks" />
+  <browser:viewletManager
+    name="groupserver.GroupHomepageTaskTabs"
+    permission="zope.Public"
+    provides=".interfaces.IGroupHomepageTasks"
+    class="gs.help.mgr.WeightOrderedViewletManager"/>
+
+  <!--The Homepage Itself-->    
   <browser:page 
     for="Products.XWFChat.interfaces.IGSGroupFolder"
     name="index.html"
-    class=".homepage.GroupHomepage"
     template="browser/templates/homepage.pt"
     permission="zope2.View"/>
-
+    
 </configure>
 
