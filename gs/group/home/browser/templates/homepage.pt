@@ -6,6 +6,15 @@
     <title metal:fill-slot="title">
       <span tal:replace="string:${view/groupInfo/name} Home: ${view/siteInfo/name}"/>
     </title>
+    <tal:block metal:fill-slot="style">
+      <link rel="stylesheet" type="text/css" 
+        href="/++resource++jquery-ui-1.8.5-css/ui-lightness/jquery-ui-1.8.5.custom.css" />
+      <style type="text/css">
+        .ui-tabs .ui-tabs-hide {
+          display: none;
+        }
+      </style>
+    </tal:block>
     <!--TODO: Metadata-->
   </head>
   <body>
@@ -25,6 +34,15 @@
       </p>
     </tal:block>
     <tal:block metal:fill-slot="javascript">
+      <script src="/++resource++jquery-ui-1.7.2.custom.min.js" 
+        type="text/javascript">&#160;</script>
+      <script type="text/javascript">
+        jQuery.noConflict()
+        jQuery(document).ready( function () {
+          jQuery("#info-tabs").tabs();
+          jQuery("#task-tabs").tabs();
+        });
+      </script>        
     </tal:block>
   </body>
 </html>
