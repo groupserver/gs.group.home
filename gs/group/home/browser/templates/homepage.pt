@@ -15,6 +15,14 @@
       <p>
         <strong>Welcome!</strong>
       </p>
+      <p 
+        tal:replace="structure provider:groupserver.GroupHomepageInfoTabs">
+        I am a fish
+      </p>
+      <p 
+        tal:replace="structure provider:groupserver.GroupHomepageTaskTabs">
+        I am a fish
+      </p>
     </tal:block>
     <tal:block metal:fill-slot="javascript">
     </tal:block>

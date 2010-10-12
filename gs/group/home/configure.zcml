@@ -12,7 +12,8 @@
     name="groupserver.GroupHomepageInfoTabs"
     permission="zope.Public"
     provides=".interfaces.IGroupHomepageInfo"
-    class="gs.help.mgr.WeightOrderedViewletManager"/>
+    class="gs.help.mgr.WeightOrderedViewletManager"
+    template="browser/templates/infotabs.pt"/>
 
   <browser:viewlet name="gs-group-home-about"
     manager=".interfaces.IGroupHomepageInfo"
@@ -48,7 +49,36 @@
     name="groupserver.GroupHomepageTaskTabs"
     permission="zope.Public"
     provides=".interfaces.IGroupHomepageTasks"
-    class="gs.help.mgr.WeightOrderedViewletManager"/>
+    class="gs.help.mgr.WeightOrderedViewletManager"
+    template="browser/templates/tasktabs.pt"/>
+
+  <browser:viewlet name="gs-group-home-topics"
+    manager=".interfaces.IGroupHomepageTasks"
+    template="browser/templates/topics.pt"
+    permission="zope.Public"
+    weight="0"
+    title="Topics" />
+
+  <browser:viewlet name="gs-group-home-files"
+    manager=".interfaces.IGroupHomepageTasks"
+    template="browser/templates/files.pt"
+    permission="zope.Public"
+    weight="1"
+    title="Files" />
+
+  <browser:viewlet name="gs-group-home-settings"
+    manager=".interfaces.IGroupHomepageTasks"
+    template="browser/templates/settings.pt"
+    permission="zope.Public"
+    weight="2"
+    title="Settings" />
+
+  <browser:viewlet name="gs-group-home-admin"
+    manager=".interfaces.IGroupHomepageTasks"
+    template="browser/templates/admin.pt"
+    permission="zope.Public"
+    weight="3"
+    title="Admin" />
 
   <!--The Homepage Itself-->    
   <browser:page 
