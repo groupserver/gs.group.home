@@ -4,13 +4,14 @@
   metal:use-macro="context/@@groupserver_site_home_layout/page">
   <head>
     <title metal:fill-slot="title">
-      <span tal:replace="string:Group Homepage: ${view/siteInfo/name}"/>
+      <span tal:replace="string:${view/groupInfo/name} Home: ${view/siteInfo/name}"/>
     </title>
     <!--TODO: Metadata-->
   </head>
   <body>
     <tal:block metal:fill-slot="body">
-      <h1>GroupHomepage</h1>
+      <h1><span class="fn" tal:content="view/groupInfo/name">Group</span>
+        Home</h1>
       <p>
         <strong>Welcome!</strong>
       </p>
