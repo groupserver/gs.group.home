@@ -58,6 +58,7 @@
   <browser:viewlet name="gs-group-home-topics"
     manager=".interfaces.IGroupHomepageTasks"
     template="browser/templates/topics.pt"
+    class=".topics.TopicsTab"
     permission="zope2.Public"
     weight="0"
     title="Topics" />
@@ -83,6 +84,27 @@
     permission="zope2.Public"
     weight="3"
     title="Admin" />
+
+  <!--Scripts-->
+  <interface interface=".interfaces.IGroupHomepageScripts" />
+  <browser:viewletManager
+    name="groupserver.GroupHomepageScripts"
+    permission="zope2.Public"
+    provides=".interfaces.IGroupHomepageScripts"
+    template="browser/templates/scripts.pt"/>
+
+  <browser:viewlet name="gs-group-home-topics-script"
+    manager=".interfaces.IGroupHomepageScripts"
+    template="browser/templates/topicscript.pt"
+    class=".simpletab.SimpleTab"
+    permission="zope2.Public"
+    title="Topics" />
+  <browser:viewlet name="gs-group-home-files-script"
+    manager=".interfaces.IGroupHomepageScripts"
+    template="browser/templates/filescript.pt"
+    class=".simpletab.SimpleTab"
+    permission="zope2.Public"
+    title="Files" />
 
   <!--The Homepage Itself-->    
   <browser:page 

@@ -1,4 +1,8 @@
 <div>
-  <p>This is the topics tab.</p>
+  <p id="latestTopics">
+    <img style="margin:0px 0.69em 0px 0px;padding:0px;"
+      src="/++resource++anim/wait.gif"/> 
+    Loading the latest topics
+  </p>
 </div>
 

@@ -10,4 +10,6 @@ class IGroupHomepageInfo(IViewletManager):
 
 class IGroupHomepageTasks(IViewletManager):
     '''A viewlet manager for the Task tabs on the group homepage'''
-
+    
+class IGroupHomepageScripts(IViewletManager):
+    '''A viewlet manager for the scripts on the group homepage'''

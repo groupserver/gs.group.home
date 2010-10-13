@@ -1,4 +1,8 @@
 <div>
-  <p>This is the files tab.</p>
+  <p id="latestFiles">
+    <img style="margin:0px 0.69em 0px 0px;padding:0px;"
+      src="/++resource++anim/wait.gif"/> 
+    Loading the latest files
+  </p>
 </div>
 

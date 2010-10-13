@@ -43,6 +43,10 @@
           jQuery("#task-tabs").tabs();
         });
       </script>        
+      <tal:block
+        replace="structure provider:groupserver.GroupHomepageScripts">
+        I am a fish
+      </tal:block>
     </tal:block>
   </body>
 </html>
