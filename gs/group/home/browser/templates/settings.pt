@@ -40,7 +40,7 @@
     id="loggedin-settings">
     <ul>
       <li>
-        <a href=""><strong>Join</strong>
+        <a href="join.html"><strong>Join</strong>
           <span class="group" tal:content="view/groupInfo/name">this group</span></a>
       </li>
     </ul>
