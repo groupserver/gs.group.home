@@ -74,6 +74,7 @@
   <browser:viewlet name="gs-group-home-settings"
     manager=".interfaces.IGroupHomepageTasks"
     template="browser/templates/settings.pt"
+    class=".settings.SettingsTab"
     permission="zope2.Public"
     weight="2"
     title="Settings" />
