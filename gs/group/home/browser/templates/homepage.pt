@@ -13,6 +13,23 @@
         .ui-tabs .ui-tabs-hide {
           display: none;
         }
+        #columns {
+          float: left;
+          width: 100%;
+        }
+        #columns .tabs {
+          width: 30.58em;
+        }
+        #columns #task-tabs {
+          float: right;
+        }
+        #columns #info-tabs {
+          float: left;
+        }
+        #extended-topic-tasks li, #extended-file-tasks li {
+          display: inline;
+          padding-right: 1.39em;
+        }
       </style>
     </tal:block>
     <!--TODO: Metadata-->
@@ -21,17 +38,16 @@
     <tal:block metal:fill-slot="body">
       <h1><span class="fn" tal:content="view/groupInfo/name">Group</span>
         Home</h1>
-      <p>
-        <strong>Welcome!</strong>
-      </p>
-      <p 
-        tal:replace="structure provider:groupserver.GroupHomepageInfoTabs">
-        I am a fish
-      </p>
-      <p 
-        tal:replace="structure provider:groupserver.GroupHomepageTaskTabs">
-        I am a fish
-      </p>
+      <div id="columns">
+        <p 
+          tal:replace="structure provider:groupserver.GroupHomepageTaskTabs">
+          I am a fish
+        </p>
+        <p 
+          tal:replace="structure provider:groupserver.GroupHomepageInfoTabs">
+          I am a fish
+        </p>
+      </div>
     </tal:block>
     <tal:block metal:fill-slot="javascript">
       <script src="/++resource++jquery-ui-1.7.2.custom.min.js" 
