@@ -4,5 +4,12 @@
       src="/++resource++anim/wait.gif"/> 
     Loading the latest topics
   </p>
+  <ul id="extended-topic-tasks">
+    <li><a href="messages/topics.html">More topics&#8230;</a></li>
+    <li><a href="messages/newTopic.html">Start a topic</a></li>
+    <li><a type="application/atom+xml" class="alternateATOM"
+        tal:define="url string:/s/search.atom?t=0&amp;p=1&amp;g=${view/groupInfo/id}"
+        tal:attributes="href url" href="#">Web feed</a></li>
+  </ul>
 </div>
 

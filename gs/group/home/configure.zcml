@@ -58,7 +58,7 @@
   <browser:viewlet name="gs-group-home-topics"
     manager=".interfaces.IGroupHomepageTasks"
     template="browser/templates/topics.pt"
-    class=".topics.TopicsTab"
+    class=".simpletab.SimpleTab"
     permission="zope2.Public"
     weight="0"
     title="Topics" />
@@ -66,6 +66,7 @@
   <browser:viewlet name="gs-group-home-files"
     manager=".interfaces.IGroupHomepageTasks"
     template="browser/templates/files.pt"
+    class=".simpletab.SimpleTab"
     permission="zope2.Public"
     weight="1"
     title="Files" />
@@ -99,6 +100,7 @@
     class=".simpletab.SimpleTab"
     permission="zope2.Public"
     title="Topics" />
+    
   <browser:viewlet name="gs-group-home-files-script"
     manager=".interfaces.IGroupHomepageScripts"
     template="browser/templates/filescript.pt"
