@@ -1,6 +1,7 @@
 # coding=utf-8
 from zope.component import createObject
 from AccessControl import getSecurityManager
+from Products.GSGroupMember.groupmembership import user_member_of_group
 
 class SimpleTab(object):
     @property
@@ -24,4 +25,9 @@ class SimpleTab(object):
         user = getSecurityManager().getUser()
         retval = bool(user.has_permission('View', msgs))
         return retval
+
+    @property
+    def isMember(self):
+        u = createObject('groupserver.LoggedInUser', self.context)
+        return user_member_of_group(u, self.context)
 
