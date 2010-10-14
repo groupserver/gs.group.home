@@ -6,6 +6,19 @@
   xmlns:five="http://namespaces.zope.org/five">
   <include package="zope.viewlet" file="meta.zcml" />
   
+  <!--The Us Bar-->
+  <interface 
+    interface=".interfaces.IGroupHomepageUsBar"
+    type="zope.contentprovider.interfaces.ITALNamespaceData"/>
+  <class class=".usbar.UsBar">
+    <implements interface=".interfaces.IGroupHomepageUsBar"/>
+  </class>
+  <adapter
+    for="zope.interface.Interface zope.publisher.interfaces.browser.IDefaultBrowserLayer zope.interface.Interface"
+    factory=".usbar.UsBar"
+    provides="zope.contentprovider.interfaces.IContentProvider"
+    name="groupserver.UsBar"/>
+  
   <!--Info-->
   <interface interface=".interfaces.IGroupHomepageInfo" />
   <browser:viewletManager

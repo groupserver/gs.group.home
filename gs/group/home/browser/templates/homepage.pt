@@ -38,14 +38,17 @@
     <tal:block metal:fill-slot="body">
       <h1><span class="fn" tal:content="view/groupInfo/name">Group</span>
         Home</h1>
+      <p tal:replace="structure provider:groupserver.UsBar">
+        The Us Bar
+      </p>
       <div id="columns">
         <p 
           tal:replace="structure provider:groupserver.GroupHomepageTaskTabs">
-          I am a fish
+          The task tabs.
         </p>
         <p 
           tal:replace="structure provider:groupserver.GroupHomepageInfoTabs">
-          I am a fish
+          The info tabs.
         </p>
       </div>
     </tal:block>
@@ -61,7 +64,7 @@
       </script>        
       <tal:block
         replace="structure provider:groupserver.GroupHomepageScripts">
-        I am a fish
+        The scripts required by the tabs.
       </tal:block>
     </tal:block>
   </body>
