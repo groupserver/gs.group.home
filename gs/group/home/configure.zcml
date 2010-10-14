@@ -10,7 +10,7 @@
   <interface interface=".interfaces.IGroupHomepageInfo" />
   <browser:viewletManager
     name="groupserver.GroupHomepageInfoTabs"
-    permission="zope2.Public"
+    permission="zope2.View"
     provides=".interfaces.IGroupHomepageInfo"
     class="gs.help.mgr.WeightOrderedViewletManager"
     template="browser/templates/infotabs.pt"/>
@@ -18,7 +18,7 @@
   <browser:viewlet name="gs-group-home-about"
     manager=".interfaces.IGroupHomepageInfo"
     template="browser/templates/about.pt"
-    permission="zope2.Public"
+    permission="zope2.View"
     weight="0"
     title="About" />
 
@@ -26,7 +26,7 @@
     manager=".interfaces.IGroupHomepageInfo"
     template="browser/templates/members.pt"
     class=".simpletab.SimpleTab"
-    permission="zope2.Public"
+    permission="zope2.View"
     weight="1"
     title="Members" />
 
@@ -34,7 +34,7 @@
     manager=".interfaces.IGroupHomepageInfo"
     template="browser/templates/stats.pt"
     class=".simpletab.SimpleTab"
-    permission="zope2.Public"
+    permission="zope2.View"
     weight="2"
     title="Statistics" />
 
@@ -42,7 +42,7 @@
     manager=".interfaces.IGroupHomepageInfo"
     template="browser/templates/privacy.pt"
     class=".simpletab.SimpleTab"
-    permission="zope2.Public"
+    permission="zope2.View"
     weight="3"
     title="Privacy" />
 
@@ -83,7 +83,7 @@
     manager=".interfaces.IGroupHomepageTasks"
     template="browser/templates/admin.pt"
     class=".admin.AdminTab"
-    permission="zope2.Public"
+    permission="zope2.ManageUsers"
     weight="3"
     title="Admin" />
 
@@ -115,7 +115,7 @@
     name="index.html"
     class=".homepage.GroupHomepage"
     template="browser/templates/homepage.pt"
-    permission="zope2.Public"/>
+    permission="zope2.View"/>
     
 </configure>
 
