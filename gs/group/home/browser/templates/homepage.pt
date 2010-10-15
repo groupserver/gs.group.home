@@ -10,6 +10,35 @@
       <link rel="stylesheet" type="text/css" 
         href="/++resource++jquery-ui-1.8.5-css/ui-lightness/jquery-ui-1.8.5.custom.css" />
       <style type="text/css">
+        #us-bar {
+          margin: 1.39em 0px;
+          height: 8.34em;
+          padding: 0.69em;
+          background-image: none;
+        }
+        #us-bar h2, #us-photos, #us-tasks {
+          float: left;
+          margin: 0px;
+          padding-right: 1.39em;
+        }
+        #us-bar h2 {
+          font-size: 189%;
+          color: white;
+        }
+        #us-photos li {
+          display: inline;
+          margin: 0px;
+          padding-right: 0.69em;
+        }
+        #us-photos a {
+          display: inline-block;
+          width: 6.25em;
+          height: 8.34em;
+          background: #999999;
+        }
+        #us-tasks ul {
+          margin-top: 0px;
+        }
         .ui-tabs .ui-tabs-hide {
           display: none;
         }

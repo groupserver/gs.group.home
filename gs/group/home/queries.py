@@ -34,7 +34,10 @@ class UsQuery(object):
         s2 = sa.select([ss.c.user_id, ss.c.date])
         s2.order_by(sa.desc(ss.c.date))
         s2.limit = 5
-        print s2
+        
+        r =  s2.execute()
+        for x in r:
+            retval.append(x['user_id'])
         
         assert type(retval) == list
         return retval
