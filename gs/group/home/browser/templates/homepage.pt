@@ -23,7 +23,7 @@
         }
         #us-bar h2 {
           font-size: 189%;
-          color: white;
+          font-weight: bold;
         }
         #us-photos li {
           display: inline-block;
