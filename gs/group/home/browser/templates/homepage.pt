@@ -12,7 +12,7 @@
       <style type="text/css">
         #us-bar {
           margin: 1.39em 0px;
-          height: 8.34em;
+          height: 4.86em;
           padding: 0.69em;
           background-image: none;
         }
@@ -26,15 +26,21 @@
           color: white;
         }
         #us-photos li {
-          display: inline;
+          display: inline-block;
           margin: 0px;
           padding-right: 0.69em;
         }
+        .userimage {
+          padding: 0px;
+        }
         #us-photos a {
           display: inline-block;
-          width: 6.25em;
-          height: 8.34em;
+          width: 3.47em;
+          height: 4.86em;
           background: #999999;
+        }
+        #us-photos img {
+          height: 4.86em;
         }
         #us-tasks ul {
           margin-top: 0px;
@@ -65,8 +71,19 @@
   </head>
   <body>
     <tal:block metal:fill-slot="body">
-      <h1><span class="fn" tal:content="view/groupInfo/name">Group</span>
-        Home</h1>
+      <div id="group-intro">
+        <!--TODO:Put the group photo here, floated to the left 
+          - https://projects.iopen.net/groupserver/ticket/506
+        -->
+        <h1><span class="fn" tal:content="view/groupInfo/name">Group</span>
+          Home</h1>
+        <p id="description"
+          tal:define="rlg python:view.groupInfo.get_property('real_life_group')"
+          tal:condition="rlg">
+          An online group for 
+          <span class="rlg" tal:content="rlg">stuff</span>.
+        </p>
+      </div><!--group-intro-->
       <p tal:replace="structure provider:groupserver.UsBar">
         The Us Bar
       </p>
