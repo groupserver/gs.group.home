@@ -16,11 +16,19 @@
       <li>
         <a href="#"
           tal:attributes="href string:/groups/leave.html?groupId=${view/groupInfo/id}">Leave us</a></li>
-    </ul>
-    <ul id="us-anon-tasks" tal:condition="not:view/isMember">
-      <li>Join us</li>
-      <li>Login</li>
-    </ul>    
-  </div>
-</div>
+    </ul><!--us-member-tasks-->
+    <ul id="us-anon-tasks" tal:condition="view/isAnon">
+      <li><a tal:attributes="href string:login.html?came_from=${view/groupInfo/url}"
+            href="#">Login</a></li>
+      <li>
+        <a tal:attributes="href string:/request_registration.html?form.groupId=${view/groupInfo/id}"
+          href="#"><strong>Sign up</strong> and join us</a>
+      </li>
+    </ul><!--us-anon-tasks-->
+    <ul id="us-non-member-tasks"
+      tal:condition="python:not(view.isMember or view.isAnon)">
+      <li><a href="join.html">Join us</a></li>
+    </ul><!--us-non-member-tasks-->
+  </div><!--us-tasks-->
+</div><!--us-bar-->
 

@@ -2,10 +2,10 @@
 from zope.component import createObject
 from zope.contentprovider.interfaces import UpdateNotCalled
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from simpletab import SimpleTab
+from settings import SettingsTab
 from queries import UsQuery
 
-class UsBar(SimpleTab):
+class UsBar(SettingsTab):
     def __init__(self, context, request, view):
         self.__parent__ = self.view = view
         self.__updated = False
