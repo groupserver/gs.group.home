@@ -73,7 +73,7 @@
   <browser:viewlet name="gs-group-home-topics"
     manager=".interfaces.IGroupHomepageTasks"
     template="browser/templates/topics.pt"
-    class=".settings.SettingsTab"
+    class=".settings.UserInfoTab"
     permission="zope2.Public"
     weight="0"
     title="Topics" />
@@ -81,7 +81,7 @@
   <browser:viewlet name="gs-group-home-files"
     manager=".interfaces.IGroupHomepageTasks"
     template="browser/templates/files.pt"
-    class=".settings.SettingsTab"
+    class=".settings.FilesTab"
     permission="zope2.Public"
     weight="1"
     title="Files" />
