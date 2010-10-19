@@ -14,20 +14,22 @@
   <div id="us-tasks">
     <ul id="us-member-tasks" tal:condition="view/isMember">
       <li>
+        You are a <strong>member.</strong> You can 
         <a href="#"
-          tal:attributes="href string:/groups/leave.html?groupId=${view/groupInfo/id}">Leave us</a></li>
+          tal:attributes="href string:/groups/leave.html?groupId=${view/groupInfo/id}">leave</a>.</li>
     </ul><!--us-member-tasks-->
     <ul id="us-anon-tasks" tal:condition="view/isAnon">
-      <li><a tal:attributes="href string:login.html?came_from=${view/groupInfo/url}"
-            href="#">Login</a></li>
+      <li>Already a member?
+        <a tal:attributes="href string:login.html?came_from=${view/groupInfo/url}"
+            href="#">Log in</a></li>
       <li>
         <a tal:attributes="href string:/request_registration.html?form.groupId=${view/groupInfo/id}"
-          href="#"><strong>Sign up</strong> and join us</a>
+          href="#"><strong>Sign up</strong> and join!</a>
       </li>
     </ul><!--us-anon-tasks-->
     <ul id="us-non-member-tasks"
       tal:condition="python:not(view.isMember or view.isAnon)">
-      <li><a href="join.html">Join us</a></li>
+      <li><a href="join.html">Join</a> and become a member!</li>
     </ul><!--us-non-member-tasks-->
   </div><!--us-tasks-->
 </div><!--us-bar-->

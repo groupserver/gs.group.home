@@ -15,6 +15,7 @@
           height: 4.86em;
           padding: 0.69em;
           background-image: none;
+          background: white;
         }
         #us-bar h2, #us-photos, #us-tasks {
           float: left;
@@ -43,6 +44,7 @@
           height: 4.86em;
         }
         #us-tasks ul {
+          font-weight: normal;
           margin-top: 0px;
         }
         .ui-tabs .ui-tabs-hide {
