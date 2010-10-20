@@ -32,7 +32,7 @@ setup(name='gs.group.home',
     zip_safe=True,
     install_requires=[
         'setuptools',
-        'gs.help',
+        'gs.viewlet',
         'Products.XWFChat',
         'Products.GSContent',
         # -*- Extra requirements: -*-

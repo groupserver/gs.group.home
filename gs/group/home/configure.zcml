@@ -27,7 +27,7 @@
     name="groupserver.GroupHomepageInfoTabs"
     permission="zope2.View"
     provides=".interfaces.IGroupHomepageInfo"
-    class="gs.help.mgr.WeightOrderedViewletManager"
+    class="gs.viewlet.manager.WeightOrderedViewletManager"
     template="browser/templates/infotabs.pt"/>
 
   <browser:viewlet name="gs-group-home-about"
@@ -67,7 +67,7 @@
     name="groupserver.GroupHomepageTaskTabs"
     permission="zope2.Public"
     provides=".interfaces.IGroupHomepageTasks"
-    class="gs.help.mgr.WeightOrderedViewletManager"
+    class="gs.viewlet.manager.WeightOrderedViewletManager"
     template="browser/templates/tasktabs.pt"/>
 
   <browser:viewlet name="gs-group-home-topics"
