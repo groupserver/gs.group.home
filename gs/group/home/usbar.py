@@ -1,7 +1,8 @@
 # coding=utf-8
 from zope.component import createObject
 from zope.contentprovider.interfaces import UpdateNotCalled
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from zope.app.pagetemplate import ViewPageTemplateFile
+#from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from settings import SettingsTab
 from queries import UsQuery
 
@@ -12,6 +13,7 @@ class UsBar(SettingsTab):
 
         self.context = context
         self.request = request
+        print '###### %s' % dir(request)
         self.__updated = False
         
     def update(self):
