@@ -30,13 +30,15 @@
     class="gs.viewlet.manager.WeightOrderedViewletManager"
     template="browser/templates/infotabs.pt"/>
 
+  <!-- The about tab is not written yet
+    - https://projects.iopen.net/groupserver/ticket/493
   <browser:viewlet name="gs-group-home-about"
     manager=".interfaces.IGroupHomepageInfo"
     template="browser/templates/about.pt"
     permission="zope2.View"
     weight="0"
     title="About" />
-
+  -->
   <browser:viewlet name="gs-group-home-members"
     manager=".interfaces.IGroupHomepageInfo"
     template="browser/templates/members.pt"
@@ -131,6 +133,13 @@
     class=".homepage.GroupHomepage"
     template="browser/templates/homepage.pt"
     permission="zope2.View"/>
-    
+
+  <!--help-->
+  <browser:viewlet name="gs-group-home-help"
+    manager="gs.help.interfaces.IUserHelp"
+    template="browser/templates/help.pt"
+    permission="zope2.Public"
+    weight="3" />
+
 </configure>
 
