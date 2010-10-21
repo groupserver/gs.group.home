@@ -11,7 +11,7 @@
     <a href="#gs-group-help-privacy">privacy settings</a>
     of the group, whether you are logged in, and whether you are a
     member.
-    The table below summarises the visibility of the different
+    The table below summaries the visibility of the different
     sections for different group privacy settings.
   </p>
   <table id="gs-group-help-privacy">
@@ -112,16 +112,18 @@
       All the tabs are shown if the viewer can view the homepage.</p>
     <dl>
       <dt>Members</dt>
-      <dd>The Members tab provides links to the Members page &#8213; which
-        lists all the group members &#8213; and the Join and Leave log
-        &#8213; which summaries how the group membership changes over 
-        time.
+      <dd>The Members tab provides links to the 
+        <cite class="page">Members</cite> page &#8213; which lists all
+        the group members.
+        It also links to the <cite class="page">Join and Leave</cite>
+        log &#8213; which summaries how the group membership changes
+        over time.
       </dd>
       <dt>Statistics</dt>
-      <dd>The Statistics tab summaries how big the group is, and how often
-        the members post.
-        It also links to the Statistics page, which provides more detailed
-        statistics.
+      <dd>The Statistics tab summaries how big the group is, and
+        how often the members post.
+        It also links to the <cite class="page">Statistics</cite> page,
+        which provides more detailed statistics.
       </dd>
       <dt>Privacy</dt>
       <dd>The Privacy tab provides a summary of who can see the group 
@@ -139,7 +141,7 @@
       <dt>Topics</dt>
       <dd>
         The Topics tab links to the latest topics in the group, and the
-         Latest Topics page.
+         <cite class="page">Latest Topics</cite> page.
       </dd>
       <dt>Files</dt>
       <dd>
@@ -150,10 +152,11 @@
       <dd>
         The Settings tab provides links to pages that allow a member to
         change his or her group membership settings.
-        It links to the Leave page &#8213; which allows a member to
-        leave a group &#8213; and the Change Group Email Settings
-        &#8213; which allows a member to change how much email is 
-        received when someone posts.
+        It links to the <cite class="page">Leave</cite> page &#8213;
+        which allows a member to leave a group.
+        In addition it links to the <cite class="page">Change Group Email
+          Settings</cite> &#8213; which allows a member to change how
+        much email is received when someone posts.
       </dd>
       <dt>Admin</dt>
       <dd>
