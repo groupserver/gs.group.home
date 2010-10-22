@@ -42,7 +42,7 @@
   <browser:viewlet name="gs-group-home-members"
     manager=".interfaces.IGroupHomepageInfo"
     template="browser/templates/members.pt"
-    class=".settings.SettingsTab"
+    class=".settings.FilesTab"
     permission="zope2.View"
     weight="1"
     title="Members" />

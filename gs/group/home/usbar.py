@@ -18,12 +18,15 @@ class UsBar(SettingsTab):
         
     def update(self):
         self.__updated = True
+
         self.postingMembers = []
-        uq = UsQuery(self.context.zsqlalchemy)
-        ml = uq.posting_authors(self.siteInfo.id, self.groupInfo.id)
-        ctx = self.context
-        self.postingMembers = \
-            [createObject('groupserver.UserFromId',ctx, uid) for uid in ml]
+        if self.viewTopics:
+            # If you cannot see the topics you should not see who posted
+            uq = UsQuery(self.context.zsqlalchemy)
+            ml = uq.posting_authors(self.siteInfo.id, self.groupInfo.id)
+            ctx = self.context
+            self.postingMembers = \
+                [createObject('groupserver.UserFromId',ctx, uid) for uid in ml]
 
     def render(self):
         if not self.__updated:

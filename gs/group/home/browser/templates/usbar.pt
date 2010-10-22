@@ -21,8 +21,8 @@
     <ul id="us-anon-tasks" tal:condition="view/isAnon">
       <li>Already a member?
         <a tal:attributes="href string:login.html?came_from=${view/groupInfo/url}"
-            href="#">Log in</a></li>
-      <li>
+            href="#"><strong>Log in!<strong></a></li>
+      <li tal:condition="view/viewTopics">
         <a tal:attributes="href string:/request_registration.html?form.groupId=${view/groupInfo/id}"
           href="#"><strong>Sign up</strong> and join!</a>
       </li>
