@@ -1,7 +1,7 @@
 <div id="gs-group-home">
   <h2>Group Homepage</h2>
   <p>
-    A group homepage is divided into three sections: 
+    A group homepage is divided into three areas:
     <a href="#gs-group-home-usbar">the us bar</a>
     <a href="#gs-group-home-info">information tabs</a> and
     <a href="#gs-group-home-tasks">task tabs</a>.
@@ -30,7 +30,18 @@
     </thead>
     <tbody>
       <tr>
-        <th>Us Bar</th>
+        <th 
+          style="text-align:left; border-top: thin solid black;"
+          colspan="4" >Us Bar</th>
+      </tr>
+      <tr>
+        <th>Photos</th>
+        <td>Everyone</td>
+        <td>Logged in members only</td>
+        <td>Logged in members only</td>
+      </tr>
+      <tr>
+        <th>Links</th>
         <td>Everyone</td>
         <td>Everyone</td>
         <td>Logged in members only</td>
@@ -99,17 +110,59 @@
       title.
       It shows the profile photos of the members that have recently
       posted.
-      In addition it provides some links that allow the person viewing
-      the page to join or leave the group (depending on his or her
-      membership status).
+      The photos are shown to the people listed in the table
+      <a href="#gs-group-help-privacy">Visibility of Sections on the
+        Group Homepage.</a>
     </p>
+    <p>
+      The Us Bar also provides links that allow the you to join or 
+      leave the group.
+      The links that are provided are detailed in the table 
+      <a href="#gs-group-help-usbar-links">Links Shown in the Us Bar.</a>
+    </p>
+    <table id="gs-group-help-usbar-links">
+      <caption>Links Shown in the Us Bar</caption>
+      <thead>
+        <tr>
+          <th>&#160;</th>
+          <th colspan="3" style="text-align:center;">Group Privacy</th>
+        </tr>
+        <tr style="border-bottom: thin solid black;">
+          <th>&#160;</th>
+          <th>Public&#160;</th>
+          <th>Private&#160;</th>
+          <th>Secret</th>
+        </tr>
+      </thead>
+      <tbody style="vertical-align:top;">
+        <tr>
+          <th>Non-Member&#160;</th>
+          <td>Login<br/>Join&#160;</td>
+          <td>Login&#160;</td>
+          <td>&#8213;</td>
+        </tr>
+        <tr>
+          <th>Member</th>
+          <td>Leave</td>
+          <td>Leave&#160;</td>
+          <td>Leave</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   <div id="gs-group-home-info">
     <h3>Information Tabs</h3>
-    <p>There a three information tabs: Members, Statistics, and
+    <p>
+      The information tabs provide summary information about the group.
+      There are three information tabs: Members, Statistics, and
       Privacy.
-      They provide summary information about the group.
-      All the tabs are shown if the viewer can view the homepage.</p>
+      The tabs that are shown depend on the group privacy, whether you
+      are logged in, and whether you are a member of the group.
+      The table
+      <a href="#gs-group-help-privacy">Visibility of Sections on the
+        Group Homepage</a>
+      details who can see the tabs in the different situations.
+    </p>
     <dl>
       <dt>Members</dt>
       <dd>The Members tab provides links to the 
@@ -134,29 +187,43 @@
   <div id="gs-group-home-tasks">
     <h3>Task Tabs</h3>
     <p>
+      The task tabs allow you to carry out common tasks.
       There are four task tabs: Topics, Files, Settings, and Admin.
-      They allow people to carry out common tasks with the group.
+      The tabs that are shown depend on the group privacy, whether you
+      are logged in, whether you are a member of the group, and whether
+      you are an administrator.
+      The table
+      <a href="#gs-group-help-privacy">Visibility of Sections on the
+        Group Homepage</a>
+      details who can see the tabs in the different situations.
     </p>
     <dl>
       <dt>Topics</dt>
       <dd>
+        Use the Topics tab to see what people have be discussing in
+        the group.
         The Topics tab links to the latest topics in the group, and the
-         <cite class="page">Latest Topics</cite> page.
+        <cite class="page">Latest Topics</cite> page.
+        It also provides a link to the 
+        <cite class="page">Post to a New Topic</cite> page if you are a
+        member of the group.
       </dd>
       <dt>Files</dt>
       <dd>
+        The Files tab allows you to quickly find the files that have
+        been recently posted tot he group.
         The Files tab lists the latest files to have been posted to the
         group.
       </dd>
       <dt>Settings</dt>
       <dd>
-        The Settings tab provides links to pages that allow a member to
-        change his or her group membership settings.
+        The Settings tab provides links to pages that allow you to
+        change your group membership settings.
         It links to the <cite class="page">Leave</cite> page &#8213;
-        which allows a member to leave a group.
+        which allows you to leave a group.
         In addition it links to the <cite class="page">Change Group Email
-          Settings</cite> &#8213; which allows a member to change how
-        much email is received when someone posts.
+          Settings</cite> &#8213; page, which allows you to change how
+        much email you recieve when someone posts.
       </dd>
       <dt>Admin</dt>
       <dd>
