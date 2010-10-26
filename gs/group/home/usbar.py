@@ -13,7 +13,6 @@ class UsBar(SettingsTab):
 
         self.context = context
         self.request = request
-        print '###### %s' % dir(request)
         self.__updated = False
         
     def update(self):
