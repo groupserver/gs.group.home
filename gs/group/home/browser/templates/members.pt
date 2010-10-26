@@ -3,9 +3,6 @@
     <dl>
       <dt><a href="members">Members</a></dt>
       <dd>A simple list of the group members.</dd>
-      <dt><a href="memberdirectory">Members Directory</a></dt>
-      <dd>A sortable list of members, and some of their profile 
-        fields.</dd>
       <dt><a href="log.html">Join and leave log</a></dt>
       <dd>How the membership of 
         <span tal:content="view/groupInfo/name" class="group">this group</span>

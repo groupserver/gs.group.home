@@ -19,12 +19,15 @@
           tal:attributes="href string:/groups/leave.html?groupId=${view/groupInfo/id}">leave</a>.</li>
     </ul><!--us-member-tasks-->
     <ul id="us-anon-tasks" tal:condition="view/isAnon">
-      <li>Already a member?
+      <li tal:condition="not:view/viewTopics">Already a member?
         <a tal:attributes="href string:login.html?came_from=${view/groupInfo/url}"
             href="#"><strong>Log in!<strong></a></li>
       <li tal:condition="view/viewTopics">
         <a tal:attributes="href string:/request_registration.html?form.groupId=${view/groupInfo/id}"
-          href="#"><strong>Sign up</strong> and join!</a>
+          href="#"><strong>Sign up</strong> to join!</a>
+        (Already a member?
+        <a tal:attributes="href string:login.html?came_from=${view/groupInfo/url}"
+          href="#"><strong>Log in!<strong></a>)
       </li>
     </ul><!--us-anon-tasks-->
     <ul id="us-non-member-tasks"
