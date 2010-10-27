@@ -1,4 +1,4 @@
-<div id="us-bar" class="ui-widget-header ui-corner-all">
+<div id="us-bar" class="ui-widget-content ui-corner-all">
   <h2>Us</h2>  
   <ul id="us-photos">
     <tal:block repeat="member view/postingMembers">
