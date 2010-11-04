@@ -33,6 +33,7 @@ setup(name='gs.group.home',
     install_requires=[
         'setuptools',
         'gs.content.js.jquery',
+        'gs.group.base',
         'gs.help',
         'gs.viewlet',
         'Products.XWFChat',
