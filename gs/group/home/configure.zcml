@@ -41,7 +41,7 @@
   <browser:viewlet name="gs-group-home-members"
     manager=".interfaces.IGroupHomepageInfo"
     template="browser/templates/members.pt"
-    class=".settings.FilesTab"
+    class=".simpletab.PublicTab"
     permission="zope2.View"
     weight="1"
     title="Members" />
@@ -82,7 +82,7 @@
   <browser:viewlet name="gs-group-home-files"
     manager=".interfaces.IGroupHomepageTasks"
     template="browser/templates/files.pt"
-    class=".settings.FilesTab"
+    class=".simpletab.PublicTab"
     permission="zope2.Public"
     weight="1"
     title="Files" />
@@ -90,7 +90,7 @@
   <browser:viewlet name="gs-group-home-settings"
     manager=".interfaces.IGroupHomepageTasks"
     template="browser/templates/settings.pt"
-    class=".settings.SettingsTab"
+    class=".simpletab.MemberOnlyTab"
     permission="zope2.Public"
     weight="2"
     title="Settings" />
@@ -114,14 +114,14 @@
   <browser:viewlet name="gs-group-home-topics-script"
     manager=".interfaces.IGroupHomepageScripts"
     template="browser/templates/topicscript.pt"
-    class=".settings.SettingsTab"
+    class=".simpletab.PublicTab"
     permission="zope2.Public"
     title="Topics" />
     
   <browser:viewlet name="gs-group-home-files-script"
     manager=".interfaces.IGroupHomepageScripts"
     template="browser/templates/filescript.pt"
-    class=".settings.SettingsTab"
+    class=".simpletab.PublicTab"
     permission="zope2.Public"
     title="Files" />
 

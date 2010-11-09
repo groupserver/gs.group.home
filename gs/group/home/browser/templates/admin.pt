@@ -14,13 +14,15 @@
             of multiple members</a> using a CSV file.</li>
       </ol>
     </li><!--invite-links-->
-    <li id="manage-links"
-      tal:define="c view/memberCount; many python:c&gt;100">
-      <a tal:attributes="href python:many and 'admingroup/manage_many_members' or 'managemembers.html'"
-        href="#"><strong>Manage</strong> the 
-        <em tal:condition="many">many</em> 
-        group members</a>
+    <li id="manage-links"><strong>Manage</strong> the group members
       <ul>
+        <li id="manage-links"
+          tal:define="c view/memberCount; many python:c&gt;100">
+          <a tal:attributes="href python:many and 'admingroup/manage_many_members' or 'managemembers.html'"
+            href="#"><strong>Manage</strong> the 
+            <em tal:condition="many">many</em> 
+            group members</a>
+        </li>
         <li tal:condition="view/mailingListInfo/is_moderated">
           <a href="managemembers.html?showOnly=moderated">Manage 
             the <em>moderated</em> members</a>
@@ -41,10 +43,13 @@
       </ul>
     </li><!--manage-links-->
     <li id="change-properties-links" tal:condition="view/isSiteAdmin">
-      <strong>Change</strong> the group properties
+      <strong>Change</strong> the group properties.
       <ul>
         <li><a href="admingroup/editproperties/generalproperties">
           Change the <em>general</em> group properties
+        </li>
+        <li><a href="changeabout.html">Change the <em>About 
+              Tab.</em></a>
         </li>
         <li><a href="admin_change_basic_privacy.html">Change
           the <em>privacy</em></a> of 

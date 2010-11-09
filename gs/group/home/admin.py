@@ -2,9 +2,13 @@
 from zope.component import createObject
 from Products.XWFCore.XWFUtils import getOption
 from Products.GSGroupMember.groupmembership import user_division_admin_of_group
-from simpletab import SimpleTab
+from simpletab import UserInfoTab
 
-class AdminTab(SimpleTab):
+class AdminTab(UserInfoTab):
+    def __init__(self, group, request, view, manager):
+        UserInfoTab.__init__(self, group, request, view, manager)
+        self.__mailingListInfo = None
+        
     @property
     def memberCount(self):
         acl_users = self.context.acl_users
@@ -16,9 +20,10 @@ class AdminTab(SimpleTab):
 
     @property
     def mailingListInfo(self):
-        mailingListInfo = createObject('groupserver.MailingListInfo', 
-                                        self.context)
-        return mailingListInfo
+        if self.__mailingListInfo == None:
+            self.__mailingListInfo = createObject('groupserver.MailingListInfo', 
+                                               self.context)
+        return self.__mailingListInfo
 
     @property
     def isAnnouncement(self):
@@ -27,8 +32,7 @@ class AdminTab(SimpleTab):
         
     @property
     def isSiteAdmin(self):
-        userInfo = createObject('groupserver.LoggedInUser', self.context)
-        return user_division_admin_of_group(userInfo, self.groupInfo)
+        return user_division_admin_of_group(self.userInfo, self.groupInfo)
 
     @property
     def canSetPostingLimit(self):

@@ -15,7 +15,7 @@
       </li>
     </ul>
   </div><!--member-settings-->
-  <div tal:condition="view/isAnon" id="anon-settings">
+  <div tal:condition="view/userInfo/anonymous" id="anon-settings">
     <ul>
       <li>
         <a tal:attributes="href string:/login.html?came_from=${view/groupInfo/url}"
