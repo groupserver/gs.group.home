@@ -6,14 +6,20 @@
       Loading the latest topics
     </p>
     <ul id="extended-topic-tasks">
-      <li><a href="messages/topics.html">More topics&#8230;</a></li>
-      <li tal:condition="view/isMember">
-        <a href="messages/newTopic.html"><strong>Post</strong> to a new
-          topic</a></li>
+      <li><a href="messages/topics.html"><strong>More</strong>
+          topics&#8230;</a></li>
       <li><a type="application/atom+xml" class="alternateATOM"
           tal:define="url string:/s/search.atom?t=0&amp;p=1&amp;g=${view/groupInfo/id}"
           tal:attributes="href url" href="#">Web feed</a></li>
     </ul>
+    <p tal:condition="view/canPost" id="topic-posting-tasks">
+      You can 
+      <a href="messages/newTopic.html"><strong>post</strong> to a new
+        topic</a> using the Web or send an email to
+      <a href="#" tal:attributes="href string:mailto:${view/email}">
+        <code class="email" 
+          tal:content="view/email">the email address</code></a>.
+    </p>
   </tal:block>
   <tal:block condition="not:view/viewTopics">
     <!--We must be looking at a private group-->
