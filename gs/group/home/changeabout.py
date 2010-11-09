@@ -1,10 +1,12 @@
 # coding=utf-8
 from zope.formlib import form
+from zope.component import createObject
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 from gs.content.form.wymeditor import wym_editor_widget
 from gs.content.form.utils import enforce_schema
 from gs.group.base.form import GroupForm
 from interfaces import IChangeAbout
+from audit import Auditor, CHANGE_ABOUT
 
 class ChangeAbout(GroupForm):
     label = u'Change the Homepage About Tab'
@@ -28,6 +30,11 @@ class ChangeAbout(GroupForm):
     def handle_invite(self, action, data):
         enforce_schema(self.context, IChangeAbout)
         form.applyChanges(self.context, self.form_fields, data)
+        
+        auditor = Auditor(self.siteInfo, self.groupInfo)
+        admin = createObject('groupserver.LoggedInUser', self.context)
+        auditor.info(CHANGE_ABOUT, admin, '%d' % len(data['aboutText']))
+        
         self.status = u'The About tab on the homepage for '\
           u'<a href="%s">%s</a> has been changed.' %\
           (self.groupInfo.relative_url(), self.groupInfo.name)
@@ -37,5 +44,4 @@ class ChangeAbout(GroupForm):
             self.status = u'<p>There is an error:</p>'
         else:
             self.status = u'<p>There are errors:</p>'
-
 
