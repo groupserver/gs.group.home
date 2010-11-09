@@ -74,7 +74,7 @@
   <browser:viewlet name="gs-group-home-topics"
     manager=".interfaces.IGroupHomepageTasks"
     template="browser/templates/topics.pt"
-    class=".settings.UserInfoTab"
+    class=".topicstab.TopicsTab"
     permission="zope2.Public"
     weight="0"
     title="Topics" />
