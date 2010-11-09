@@ -1,5 +1,6 @@
 # coding=utf-8
 """Interfaces for the the help viewlets pages."""
+from zope.interface.interface import Interface
 from zope.viewlet.interfaces import IViewletManager
 from zope.schema import Text, ASCIILine
 from zope.contentprovider.interfaces import IContentProvider
@@ -23,4 +24,9 @@ class IGroupHomepageUsBar(IContentProvider):
         u'render the status message.',
         required=False,
         default=u"browser/templates/usbar.pt")
+
+class IChangeAbout(Interface):
+    aboutText = Text(title=u'Text',
+        description=u'The text that appears in the About tab.',
+        required = True)
 

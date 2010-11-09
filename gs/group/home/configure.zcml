@@ -30,15 +30,14 @@
     class="gs.viewlet.manager.WeightOrderedViewletManager"
     template="browser/templates/infotabs.pt"/>
 
-  <!-- The about tab is not written yet
-    - https://projects.iopen.net/groupserver/ticket/493
   <browser:viewlet name="gs-group-home-about"
     manager=".interfaces.IGroupHomepageInfo"
     template="browser/templates/about.pt"
+    class=".abouttab.AboutTab"
     permission="zope2.View"
     weight="0"
     title="About" />
-  -->
+
   <browser:viewlet name="gs-group-home-members"
     manager=".interfaces.IGroupHomepageInfo"
     template="browser/templates/members.pt"
@@ -133,6 +132,15 @@
     class="gs.group.base.page.GroupPage"
     template="browser/templates/homepage.pt"
     permission="zope2.View"/>
+
+  <!--The Change About Page-->
+  <interface 
+    interface=".interfaces.IChangeAbout"/>
+  <browser:page
+    for="Products.XWFChat.interfaces.IGSGroupFolder"
+    name="changeabout.html"
+    class=".changeabout.ChangeAbout"
+    permission="zope2.ManageProperties"/>
 
   <!--help-->
   <browser:viewlet name="gs-group-home-help"

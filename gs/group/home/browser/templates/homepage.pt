@@ -55,7 +55,7 @@
           width: 100%;
         }
         #columns .tabs {
-          width: 30.58em;
+          width: 31.97em; /* 23.0u */
         }
         #columns #task-tabs {
           float: right;
