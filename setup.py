@@ -32,12 +32,16 @@ setup(name='gs.group.home',
     zip_safe=True,
     install_requires=[
         'setuptools',
+        'gs.content.form',
         'gs.content.js.jquery',
         'gs.group.base',
         'gs.help',
         'gs.viewlet',
         'Products.XWFChat',
+        'Products.XWFCore',
         'Products.GSContent',
+        'Products.GSGroup',
+        'Products.GSGroupMember',
         # -*- Extra requirements: -*-
     ],
     entry_points="""
