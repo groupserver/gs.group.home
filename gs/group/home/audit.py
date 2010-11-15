@@ -61,13 +61,11 @@ class ChangeAboutEvent(BasicAuditEvent):
     
     @property
     def xhtml(self):
-        cssClass = u'audit-event groupserver-profile-invite-%s' %\
+        cssClass = u'audit-event groupserver-group-home-%s' %\
           self.code
-        retval = u'<span class="%s">%s %s the invitation from %s to '\
-                    u'join %s</span>' % \
+        retval = u'<span class="%s">%s changed the About tab on the'\
+            u'homepage of %s</span>' % \
                     (cssClass, userInfo_to_anchor(self.instanceUserInfo), 
-                        self.instanceDatum.title(), 
-                        userInfo_to_anchor(self.userInfo),
                         groupInfo_to_anchor(self.groupInfo))
         retval = u'%s (%s)' % \
           (retval, munge_date(self.context, self.date))
