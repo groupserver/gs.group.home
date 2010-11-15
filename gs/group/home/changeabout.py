@@ -20,6 +20,7 @@ class ChangeAbout(GroupForm):
     @property
     def form_fields(self):
         if self.__formFields == None:
+            enforce_schema(self.context, IChangeAbout)
             self.__formFields = form.Fields(IChangeAbout,  
                                             render_context=True)
             self.__formFields['aboutText'].custom_widget = \
@@ -28,7 +29,6 @@ class ChangeAbout(GroupForm):
 
     @form.action(label=u'Change', failure='handle_change_action_failure')
     def handle_invite(self, action, data):
-        enforce_schema(self.context, IChangeAbout)
         form.applyChanges(self.context, self.form_fields, data)
         
         auditor = Auditor(self.siteInfo, self.groupInfo)
