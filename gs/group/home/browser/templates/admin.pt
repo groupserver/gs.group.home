@@ -35,7 +35,7 @@
         </li>
         <li tal:condition="view/isAnnouncement">
           <a href="managemembers.html?showOnly=posting">Manage 
-            the posting members
+            the posting members</a>
         </li>
         <li><a href="managemembers.html?showOnly=managers">Manage
           the <em>managers</em></a>
@@ -43,10 +43,12 @@
       </ul>
     </li><!--manage-links-->
     <li id="change-properties-links" tal:condition="view/isSiteAdmin">
-      <strong>Change</strong> the group properties.
+      <strong>Change</strong> the group.
       <ul>
-        <li><a href="admingroup/editproperties/generalproperties">
-          Change the <em>general</em> group properties
+        <li><a href="changeproperties.html">
+          Change the <em>properties</em> of 
+          <span class="group" tal:content="view/groupInfo/name">this 
+            group</span></a>
         </li>
         <li><a href="changeabout.html">Change the <em>About 
               Tab.</em></a>
