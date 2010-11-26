@@ -80,10 +80,8 @@
         <h1><span class="fn" tal:content="view/groupInfo/name">Group</span>
           Home</h1>
         <p id="description"
-          tal:define="rlg python:view.groupInfo.get_property('real_life_group')"
-          tal:condition="rlg">
-          An online group for 
-          <span class="rlg" tal:content="rlg">stuff</span>.
+          tal:define="desc python:view.groupInfo.get_property('description')">
+          <span class="desc" tal:content="desc">stuff</span>
         </p>
       </div><!--group-intro-->
       <p tal:replace="structure provider:groupserver.UsBar">
