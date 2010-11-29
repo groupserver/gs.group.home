@@ -28,5 +28,5 @@ class IGroupHomepageUsBar(IContentProvider):
 class IChangeAbout(Interface):
     aboutText = Text(title=u'Text',
         description=u'The text that appears in the About tab.',
-        required = True)
+        required = False)
 
