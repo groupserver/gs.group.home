@@ -1,7 +1,7 @@
 <div>
   <tal:block condition="view/viewTopics">
     <dl>
-      <dt><a href="members.html">Members</a></dt>
+      <dt><a href="members">Members</a></dt>
       <dd>A simple list of the group members.</dd>
       <dt><a href="log.html">Join and leave log</a></dt>
       <dd>How the membership of 
