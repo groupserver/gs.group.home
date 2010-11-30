@@ -7,7 +7,7 @@
           <span class="group" tal:content="view/groupInfo/name">this group</span></a>
       </li>
       <li>
-        <a href="email_settings"><strong>Change</strong> your email 
+        <a href="email_settings.html"><strong>Change</strong> your email 
           settings</a> 
         to you recieve one email per post, a daily
         <strong>digest</strong> of topics, or to use this group using
