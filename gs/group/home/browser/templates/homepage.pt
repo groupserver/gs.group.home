@@ -6,69 +6,6 @@
     <title metal:fill-slot="title">
       <span tal:replace="string:${view/groupInfo/name} Home: ${view/siteInfo/name}"/>
     </title>
-    <tal:block metal:fill-slot="style">
-      <link rel="stylesheet" type="text/css" 
-        href="/++resource++jquery-ui-1.8.5-css/ui-lightness/jquery-ui-1.8.5.custom.css" />
-      <style type="text/css">
-        #us-bar {
-          margin: 1.39em 0px;
-          height: 4.86em;
-          padding: 0.69em;
-          background-image: none;
-          background: white;
-        }
-        #us-bar h2, #us-photos, #us-tasks {
-          float: left;
-          margin: 0px;
-          padding-right: 1.39em;
-        }
-        #us-bar h2 {
-          font-size: 189%;
-          font-weight: bold;
-        }
-        #us-photos li {
-          display: inline-block;
-          margin: 0px;
-          padding-right: 0.69em;
-        }
-        .userimage {
-          padding: 0px;
-        }
-        #us-photos a {
-          display: inline-block;
-          width: 3.47em;
-          height: 4.86em;
-          background: #999999;
-        }
-        #us-photos img {
-          height: 4.86em;
-        }
-        #us-tasks ul {
-          font-weight: normal;
-          margin-top: 0px;
-        }
-        .ui-tabs .ui-tabs-hide {
-          display: none;
-        }
-        #columns {
-          float: left;
-          width: 100%;
-        }
-        #columns .tabs {
-          width: 31.97em; /* 23.0u */
-        }
-        #columns #task-tabs {
-          float: right;
-        }
-        #columns #info-tabs {
-          float: left;
-        }
-        #extended-topic-tasks li, #extended-file-tasks li {
-          display: inline;
-          padding-right: 1.39em;
-        }
-      </style>
-    </tal:block>
     <!--TODO: Metadata-->
   </head>
   <body>
@@ -87,16 +24,20 @@
       <p tal:replace="structure provider:groupserver.UsBar">
         The Us Bar
       </p>
-      <div id="columns">
-        <p 
-          tal:replace="structure provider:groupserver.GroupHomepageTaskTabs">
-          The task tabs.
-        </p>
-        <p 
-          tal:replace="structure provider:groupserver.GroupHomepageInfoTabs">
-          The info tabs.
-        </p>
-      </div>
+      <div class="cols">
+        <div class="rightColumn">
+          <p 
+            tal:replace="structure provider:groupserver.GroupHomepageTaskTabs">
+            The task tabs.
+          </p>
+        </div><!--right-->
+        <div class="leftColumn">
+          <p 
+            tal:replace="structure provider:groupserver.GroupHomepageInfoTabs">
+            The info tabs.
+          </p>
+        </div><!--left-->
+      </div><!--cols-->
     </tal:block>
     <tal:block metal:fill-slot="javascript">
       <script src="/++resource++jquery-ui-1.7.2.custom.min.js" 

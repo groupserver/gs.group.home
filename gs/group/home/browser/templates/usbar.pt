@@ -1,6 +1,6 @@
 <div id="us-bar" class="ui-widget-content ui-corner-all">
   <h2>Us</h2>  
-  <ul id="us-photos">
+  <ul id="us-photos" class="inline-list">
     <tal:block repeat="member view/postingMembers">
       <li>
         <a tal:attributes="title string:Posts by ${member/name};

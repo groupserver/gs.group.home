@@ -5,7 +5,7 @@
         src="/++resource++anim/wait.gif"/> 
       Loading the latest topics
     </p>
-    <ul id="extended-topic-tasks">
+    <ul id="extended-topic-tasks" class="inline-list">
       <li><a href="messages/topics.html"><strong>More</strong>
           topics&#8230;</a></li>
       <li><a type="application/atom+xml" class="alternateATOM"

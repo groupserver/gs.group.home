@@ -5,7 +5,7 @@
         src="/++resource++anim/wait.gif"/> 
       Loading the latest files
     </p>
-    <ul id="extended-file-tasks">
+    <ul id="extended-file-tasks" class="inline-list">
       <li><a tal:define="url string:/s/?t=0&amp;f=1&amp;g=${view/groupInfo/id}"
           tal:attributes="href url" href="#">More files&#8230;</a></li>
       <li><a type="application/atom+xml" class="alternateATOM"
