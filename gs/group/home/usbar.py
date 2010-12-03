@@ -4,7 +4,7 @@ from zope.contentprovider.interfaces import UpdateNotCalled
 from zope.app.pagetemplate import ViewPageTemplateFile
 from Products.GSGroupMember.groupmembership import user_member_of_group
 from gs.group.base.contentprovider import GroupContentProvider
-from queries import UsQuery
+from gs.group.member.list.queries import MembersQuery
 
 class UsBar(GroupContentProvider):
     def __init__(self, context, request, view):
@@ -34,7 +34,7 @@ class UsBar(GroupContentProvider):
         self.postingMembers = []
         if self.viewTopics:
             # If you cannot see the topics you should not see who posted
-            uq = UsQuery(self.context.zsqlalchemy)
+            uq = MembersQuery(self.context.zsqlalchemy)
             ml = uq.posting_authors(self.siteInfo.id, self.groupInfo.id)
             ctx = self.context
             self.postingMembers = \
