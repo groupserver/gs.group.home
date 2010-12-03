@@ -1,10 +1,10 @@
 <div>
   <tal:block condition="view/viewTopics">
-    <p id="latestFiles">
+    <div id="latestFiles">
       <img style="margin:0px 0.69em 0px 0px;padding:0px;"
         src="/++resource++anim/wait.gif"/> 
       Loading the latest files
-    </p>
+    </div>
     <ul id="extended-file-tasks" class="inline-list">
       <li><a tal:define="url string:/s/?t=0&amp;f=1&amp;g=${view/groupInfo/id}"
           tal:attributes="href url" href="#">More files&#8230;</a></li>

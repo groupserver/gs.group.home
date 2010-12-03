@@ -1,10 +1,10 @@
 <div>
   <tal:block condition="view/viewTopics">
-    <p id="latestTopics">
+    <div id="latestTopics">
       <img style="margin:0px 0.69em 0px 0px;padding:0px;"
         src="/++resource++anim/wait.gif"/> 
       Loading the latest topics
-    </p>
+    </div>
     <ul id="extended-topic-tasks" class="inline-list">
       <li><a href="messages/topics.html"><strong>More</strong>
           topics&#8230;</a></li>
