@@ -5,6 +5,9 @@ from zope.viewlet.interfaces import IViewletManager
 from zope.schema import Text, ASCIILine
 from zope.contentprovider.interfaces import IContentProvider
 
+import gs.group.home
+from Products.XWFCore.XWFUtils import abscompath
+
 class IGroupHomepageInfo(IViewletManager):
     '''A viewlet manager for the Info tabs on the group homepage'''
 
@@ -23,7 +26,7 @@ class IGroupHomepageUsBar(IContentProvider):
         description=u'The name of the ZPT file that is used to '\
         u'render the status message.',
         required=False,
-        default=u"browser/templates/usbar.pt")
+        default=abscompath(gs.group.home, "browser/templates/usbar.pt"))
 
 class IChangeAbout(Interface):
     aboutText = Text(title=u'Text',
