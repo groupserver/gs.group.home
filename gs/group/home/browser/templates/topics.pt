@@ -12,14 +12,19 @@
           tal:define="url string:/s/search.atom?t=0&amp;p=1&amp;g=${view/groupInfo/id}"
           tal:attributes="href url" href="#">Web feed</a></li>
     </ul>
-    <p tal:condition="view/canPost" id="topic-posting-tasks">
-      You can 
-      <a href="messages/newTopic.html"><strong>post</strong> to a new
-        topic</a> using the Web or send an email to
-      <a href="#" tal:attributes="href string:mailto:${view/email}">
-        <code class="email" 
-          tal:content="view/email">the email address</code></a>.
-    </p>
+    <div tal:condition="view/canPost" 
+      class="ui-state-highlight ui-corner-all"
+      id="topic-posting-tasks">
+      <p style="margin:1.385em;">
+        <span class="ui-icon ui-icon-info" style="float: left;">&#160;</span>
+        You can 
+        <a href="messages/newTopic.html"><strong>post</strong> to a new
+          topic</a> using the Web or send an email to
+        <a href="#" tal:attributes="href string:mailto:${view/email}">
+          <code class="email" 
+            tal:content="view/email">the email address</code></a>.
+      </p>
+    </div>
   </tal:block>
   <tal:block condition="not:view/viewTopics">
     <!--We must be looking at a private group-->
