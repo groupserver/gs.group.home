@@ -148,6 +148,11 @@
     template="browser/templates/help.pt"
     permission="zope2.Public"
     weight="3" />
+  <browser:viewlet name="gs-group-home-about-help"
+    manager="gs.help.interfaces.IAdminHelp"
+    template="browser/templates/abouthelp.pt"
+    permission="zope2.Public"
+    weight="3" />
 
   <!--Auditing-->
   <utility 
