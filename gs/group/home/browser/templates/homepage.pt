@@ -40,6 +40,7 @@
       </div><!--cols-->
     </tal:block>
     <tal:block metal:fill-slot="javascript">
+      <script type="text/javascript" src="/++resource++sharebox-20100721.js">&#160;</script>
       <script src="/++resource++jquery-ui-1.7.2.custom.min.js" 
         type="text/javascript">&#160;</script>
       <script type="text/javascript">
