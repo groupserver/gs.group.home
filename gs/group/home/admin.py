@@ -1,7 +1,7 @@
 # coding=utf-8
 from zope.component import createObject
 from Products.XWFCore.XWFUtils import getOption
-from Products.GSGroupMember.groupmembership import user_division_admin_of_group
+from Products.GSGroupMember.groupmembership import user_division_admin_of_group, user_group_admin_of_group
 from simpletab import UserInfoTab
 
 class AdminTab(UserInfoTab):
