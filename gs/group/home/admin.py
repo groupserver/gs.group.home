@@ -35,6 +35,10 @@ class AdminTab(UserInfoTab):
         return user_division_admin_of_group(self.userInfo, self.groupInfo)
 
     @property
+    def isGroupAdmin(self):
+        return user_group_admin_of_group(self.userInfo, self.groupInfo)
+
+    @property
     def canSetPostingLimit(self):
         return getOption(self.context, 'admin_can_set_posting_limit', True)
 
