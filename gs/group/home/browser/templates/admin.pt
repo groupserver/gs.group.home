@@ -2,72 +2,9 @@
   <p>
     As an administrator, you can perform the following tasks:
   </p>
-  <ul>
-    <li id="invite-links"><strong>Invite members</strong> to join 
-      <span class="group" tal:content="view/groupInfo/name">this group</span>.
-      <ol id="sitemembers">
-        <li><a href="admin_join.html"><strong>Enter</strong> the details
-            of a new member,</a></li>
-        <li><a href="admin_invite_site_members.html"><strong>Select</strong>
-            existing site members,</a> or</li>
-        <li><a href="admin_join_csv.html"><strong>Upload the details</strong>
-            of multiple members</a> using a CSV file.</li>
-      </ol>
-    </li><!--invite-links-->
-    <li id="manage-links"><strong>Manage</strong> the group members
-      <ul>
-        <li id="manage-links"
-          tal:define="c view/memberCount; many python:c&gt;100">
-          <a tal:attributes="href python:many and 'admingroup/manage_many_members' or 'managemembers.html'"
-            href="#"><strong>Manage</strong> the 
-            <em tal:condition="many">many</em> 
-            group members</a>
-        </li>
-        <li tal:condition="view/mailingListInfo/is_moderated">
-          <a href="managemembers.html?showOnly=moderated">Manage 
-            the <em>moderated</em> members</a>
-        </li>
-        <li><a  href="managemembers.html?showOnly=unverified">Manage 
-            the members with <em>no verified email addresses</em></a>
-        </li>
-        <li><a  href="managemembers.html?showOnly=invited">Manage the 
-            <em>invited</em> members</a>
-        </li>
-        <li tal:condition="view/isAnnouncement">
-          <a href="managemembers.html?showOnly=posting">Manage 
-            the posting members</a>
-        </li>
-        <li><a href="managemembers.html?showOnly=managers">Manage
-          the <em>managers</em></a>
-        </li>
-      </ul>
-    </li><!--manage-links-->
-    <li id="change-properties-links" tal:condition="view/isSiteAdmin">
-      <strong>Change</strong> the group.
-      <ul>
-        <li><a href="changeproperties.html">
-          Change the <em>properties</em> of 
-          <span class="group" tal:content="view/groupInfo/name">this 
-            group</span></a>
-        </li>
-        <li><a href="changeabout.html">Change the <em>About 
-              Tab.</em></a>
-        </li>
-        <li><a href="admin_change_basic_privacy.html">Change
-          the <em>privacy</em></a> of 
-          <span class="group" tal:content="view/groupInfo/name">this 
-            group</span>
-        </li>
-        <li tal:condition="view/canSetPostingLimit">
-          <a href="admingroup/editproperties/postinglimit">Change the
-            <em>posting limit</em></a>
-        </li>
-        <li tal:condition="not:view/isAnnouncement">
-          <a href="admingroup/editproperties/changemoderation">Change group 
-            <em>moderation</em></a>
-        </li>
-      </ul>
-    </li><!--change-properties-links-->
-  </ul>
+   <tal:block 
+    content="structure provider:groupserver.GroupHomepageAdminLinks">
+    Stuff
+  </tal:block>
 </div>
 
