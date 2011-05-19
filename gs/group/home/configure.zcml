@@ -118,7 +118,7 @@
     template="browser/templates/propertieslinks.pt"
     class="gs.group.member.base.viewlet.SiteAdminViewlet"
     permission="zope2.Public"
-    weight="1"
+    weight="5"
     title="Topics" />
 
   <!--Scripts-->
