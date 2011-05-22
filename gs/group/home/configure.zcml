@@ -121,6 +121,13 @@
     weight="5"
     title="Topics" />
 
+  <browser:viewletManager
+    name="groupserver.GroupHomepageUsBarLinks"
+    permission="zope2.View"
+    provides=".interfaces.IGroupHomepageUsLinks"
+    class="gs.viewlet.manager.WeightOrderedViewletManager"
+    template="browser/templates/adminlinks.pt"/>
+
   <!--Scripts-->
   <interface interface=".interfaces.IGroupHomepageScripts" />
   <browser:viewletManager

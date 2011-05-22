@@ -19,6 +19,9 @@ class IGroupHomepageScripts(IViewletManager):
 
 class IGroupHomepageAdminLinks(IViewletManager):
     '''A viewlet manager for the administraton links on the group homepage'''
+
+class IGroupHomepageUsLinks(IViewletManager):
+    '''A viewlet manager for the Us-Bar links on the group homepage'''
     
 class IGroupHomepageUsBar(IContentProvider):
     groupId = ASCIILine(title=u'Group Identifier',
