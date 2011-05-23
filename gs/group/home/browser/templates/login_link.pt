@@ -1,0 +1,5 @@
+<li>Already a member?
+  <a tal:attributes="href string:login.html?came_from=${view/groupInfo/url};
+    title string:Log in and view ${view/groupInfo/name}"
+    href="#"><strong>Log in!<strong></a></li>
+

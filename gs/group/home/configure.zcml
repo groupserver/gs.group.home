@@ -20,6 +20,23 @@
     factory=".usbar.UsBar"
     provides="zope.contentprovider.interfaces.IContentProvider"
     name="groupserver.UsBar"/>
+
+  <!--Links in the Us Bar, telling the viewer how to change his or her
+  - membership status. -->
+  <browser:viewletManager
+    name="groupserver.GroupHomepageUsBarLinks"
+    permission="zope2.View"
+    provides=".interfaces.IGroupHomepageUsLinks"
+    class="gs.viewlet.manager.WeightOrderedViewletManager"
+    template="browser/templates/adminlinks.pt"/>
+  <!--=mpj17= should this go in Products.GSLogin?-->
+  <browser:viewlet name="gs-group-home-login-link"
+    manager=".interfaces.IGroupHomepageUsLinks"
+    template="browser/templates/login_link.pt"
+    class=".loginlink.LoginLinkViewlet"
+    permission="zope2.View"
+    weight="2"
+    title="Login" />
   
   <!--Info-->
   <interface interface=".interfaces.IGroupHomepageInfo" />
@@ -120,13 +137,6 @@
     permission="zope2.Public"
     weight="5"
     title="Topics" />
-
-  <browser:viewletManager
-    name="groupserver.GroupHomepageUsBarLinks"
-    permission="zope2.View"
-    provides=".interfaces.IGroupHomepageUsLinks"
-    class="gs.viewlet.manager.WeightOrderedViewletManager"
-    template="browser/templates/adminlinks.pt"/>
 
   <!--Scripts-->
   <interface interface=".interfaces.IGroupHomepageScripts" />
