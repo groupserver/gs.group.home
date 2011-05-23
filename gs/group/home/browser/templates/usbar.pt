@@ -13,28 +13,7 @@
   </ul>
   <div id="us-tasks" 
     tal:content="structure provider:groupserver.GroupHomepageUsBarLinks">
-    <!--ul id="us-member-tasks" tal:condition="view/isMember">
-      <li>
-        You are a <strong>member.</strong> You can 
-        <a href="#"
-          tal:attributes="href string:/groups/leave.html?groupId=${view/groupInfo/id}">leave</a>.</li>
-    </ul>
-    <ul id="us-anon-tasks" tal:condition="view/userInfo/anonymous">
-      <li tal:condition="not:view/viewTopics">Already a member?
-        <a tal:attributes="href string:login.html?came_from=${view/groupInfo/url}"
-            href="#"><strong>Log in!<strong></a></li>
-      <li tal:condition="view/viewTopics">
-        <a tal:attributes="href string:/request_registration.html?form.groupId=${view/groupInfo/id}"
-          href="#"><strong>Sign up</strong> to join!</a>
-        (Already a member?
-        <a tal:attributes="href string:login.html?came_from=${view/groupInfo/url}"
-          href="#"><strong>Log in!<strong></a>)
-      </li>
-    </ul>
-    <ul id="us-non-member-tasks"
-      tal:condition="python:not(view.isMember or view.userInfo.anonymous)">
-      <li><a href="join.html">Join</a> and become a member!</li>
-    </ul-->
+    &#160;
   </div>
 </div><!--us-bar-->
 
