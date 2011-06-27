@@ -1,27 +1,8 @@
-<li id="change-properties-links">
-  <strong>Change</strong> the group.
-  <ul>
-    <li><a href="changeproperties.html">
-      Change the <em>properties</em> of 
-      <span class="group" tal:content="view/groupInfo/name">this 
-        group</span></a>
-    </li>
-    <li><a href="changeabout.html">Change the <em>About 
-          Tab.</em></a>
-    </li>
-    <li><a href="admin_change_basic_privacy.html">Change
-      the <em>privacy</em></a> of 
-      <span class="group" tal:content="view/groupInfo/name">this 
-        group</span>
-    </li>
-    <li tal:condition="view/canSetPostingLimit">
-      <a href="admingroup/editproperties/postinglimit">Change the
-        <em>posting limit</em></a>
-    </li>
-    <li tal:condition="not:view/isAnnouncement">
-      <a href="admingroup/editproperties/changemoderation">Change group 
-        <em>moderation</em></a>
-    </li>
-  </ul>
-</li><!--manage-links-->
-
+<li><a href="changeabout.html">Change the <em>About 
+      Tab.</em></a>
+<!--TODO: Ticket 699 -->
+<!--li tal:condition="view/canSetPostingLimit">
+  <a href="admingroup/editproperties/postinglimit">Change the
+    <em>posting limit</em></a>
+</li-->
+</li>
