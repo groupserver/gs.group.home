@@ -32,10 +32,11 @@
       You must be a logged in member of 
       <span class="group" tal:content="view/groupInfo/name">this group</span>
       to view the topics.
-      <a tal:attributes="href string:/login.html?came_from=${view/groupInfo/url}"
-        href="#"><strong>Login</strong> if you are already a 
-        member.</a>
     </p>
+    <tal:block 
+      replace="structure provider:groupserver.GroupHomepageUsBarLinks">
+      &#160;
+    </tal:block>
   </tal:block>  
 </div>
 
