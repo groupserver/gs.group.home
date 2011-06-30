@@ -12,7 +12,7 @@
           tal:define="url string:/s/search.atom?t=0&amp;p=1&amp;g=${view/groupInfo/id}"
           tal:attributes="href url" href="#">Web feed</a></li>
     </ul>
-    <div tal:condition="view/canPost" 
+    <div tal:condition="view/canPost/canPost" 
       class="ui-state-highlight ui-corner-all"
       id="topic-posting-tasks">
       <p style="margin:1.385em;">
