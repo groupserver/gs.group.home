@@ -90,19 +90,21 @@ Testing
 
 To test that the homepage works the following user-and group states must
 checked against the correct functioning of the homepage. The correct
-functioning of the homepage is described in the user-help.
+functioning of the homepage is described in the user-help. (For a secret
+group the anonymous and non-members should not even see the group,
+so those tests are marked ``—``.)
 
 +---------+---------+-------+-------+---------+--------+-------+-------+
-|         | Manager | Site  | Group | Posting | Member | Non-  | Anon  |
-|         |         | Admin | Admin | Member  |        | Member|       |
+|         | Manager | Site  | Group | Posting | Normal | Non-  | Anon  |
+|         |         | Admin | Admin | Member  | Member | Member|       |
 +---------+----+----+---+---+---+---+----+----+---+----+---+---+---+---+
 |         | A  | D  | A | D | A | D | A  | D  | A | D  | A | D | A | D |
 +=========+====+====+===+===+===+===+====+====+===+====+===+===+===+===+
-| Public  | A  | D  | A | D | A | D | A  | D  | A | D  | A | D | A | D |
+| Public  | ✓  | ✓  | ✓ | ✓ | ✓ | ✓ | ✓  | —  | ✓ | ✓  | ✓ | ✓ | ✓ | ✓ |
 +---------+----+----+---+---+---+---+----+----+---+----+---+---+---+---+
-| Private | A  | D  | A | D | A | D | A  | D  | A | D  | A | D | A | D |
+| Private | ✓  | ✓  | ✓ | ✓ | ✓ | ✓ | ✓  | —  | ✓ | ✓  | ✓ | ✓ | ✓ | ✓ |
 +---------+----+----+---+---+---+---+----+----+---+----+---+---+---+---+
-| Secret  | A  | D  | A | D | A | D | A  | D  | A | D  | A | D | A | D |
+| Secret  | ✓  | ✓  | ✓ | ✓ | ✓ | ✓ | ✓  | —  | ✓ | ✓  | — | — | — | — |
 +---------+----+----+---+---+---+---+----+----+---+----+---+---+---+---+
 
 Manager
@@ -142,6 +144,16 @@ A
 D
   Discussion group. Every member of a discussion group should be able
   to post.
+
+Todo
+-----
+
+* Add site-admin-non-member and manager-non-member columns.
+* Write down what to test.
+* Create a list of the functional tests.
+* Update the help so it matches the test.
+* Automate the test.
+* Find a unicorn that can shit diamonds.
 
 .. Resources
 
