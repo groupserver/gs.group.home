@@ -110,7 +110,7 @@ Manager
   and change everything, but not post unless he or she is a member.
   
 Site Admin
-  A person with the ``SiteAdmin`` role. A site administrator should
+  A person with the ``DivisionAdmin`` role. A site administrator should
   be able to see the group, change all the permissions to do with the
   group, and alter the membership of the group. A site administrator
   can only post if he or she is a member of the group.
