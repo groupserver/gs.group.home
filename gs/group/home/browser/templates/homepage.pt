@@ -4,7 +4,7 @@
   metal:use-macro="context/@@groupserver_site_home_layout/page">
   <head>
     <title metal:fill-slot="title">
-      <span tal:replace="string:${view/groupInfo/name} Home: ${view/siteInfo/name}"/>
+      <span tal:replace="string:${view/groupInfo/name}: ${view/siteInfo/name}"/>
     </title>
     <!--TODO: Metadata-->
   </head>
@@ -14,8 +14,7 @@
         <!--TODO:Put the group photo here, floated to the left 
           - https://projects.iopen.net/groupserver/ticket/506
         -->
-        <h1><span class="fn" tal:content="view/groupInfo/name">Group</span>
-          Home</h1>
+        <h1 class="fn" tal:content="view/groupInfo/name">Group</h1>
         <p id="description"
           tal:define="desc python:view.groupInfo.get_property('description')">
           <span class="desc" tal:content="desc">stuff</span>
