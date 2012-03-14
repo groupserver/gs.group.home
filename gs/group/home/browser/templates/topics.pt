@@ -24,7 +24,7 @@
           <code class="email" 
             tal:content="view/email">the email address</code></a>.
       </p>
-    </div>
+    </div><!--topic-posting-tasks-->
   </tal:block>
   <tal:block condition="not:view/viewTopics">
     <!--We must be looking at a private group-->
