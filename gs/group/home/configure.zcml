@@ -88,14 +88,6 @@
     class="gs.viewlet.manager.WeightOrderedViewletManager"
     template="browser/templates/tasktabs.pt"/>
 
-  <browser:viewlet name="gs-group-home-topics"
-    manager=".interfaces.IGroupHomepageTasks"
-    template="browser/templates/topics.pt"
-    class=".topicstab.TopicsTab"
-    permission="zope2.Public"
-    weight="0"
-    title="Topics" />
-
   <browser:viewlet name="gs-group-home-files"
     manager=".interfaces.IGroupHomepageTasks"
     template="browser/templates/files.pt"
@@ -136,7 +128,7 @@
     class="gs.group.member.base.viewlet.GroupAdminViewlet"
     permission="zope2.ManageProperties"
     weight="1"
-    title="Topics" />
+    title="Properties" />
 
   <!--Scripts-->
   <interface interface=".interfaces.IGroupHomepageScripts" />
@@ -146,13 +138,6 @@
     provides=".interfaces.IGroupHomepageScripts"
     template="browser/templates/scripts.pt"/>
 
-  <browser:viewlet name="gs-group-home-topics-script"
-    manager=".interfaces.IGroupHomepageScripts"
-    template="browser/templates/topicscript.pt"
-    class=".simpletab.PublicTab"
-    permission="zope2.Public"
-    title="Topics" />
-    
   <browser:viewlet name="gs-group-home-files-script"
     manager=".interfaces.IGroupHomepageScripts"
     template="browser/templates/filescript.pt"

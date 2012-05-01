@@ -1,8 +1,0 @@
-<tal:block>
-jQuery.noConflict() 
-jQuery(document).ready( function () {
-  var uri = "/s/search.ajax?g=<tal:block content="view/groupInfo/id"/>&amp;i=0&amp;l=6";
-  jQuery("#latestTopics").load(uri);
-});
-</tal:block>
-
