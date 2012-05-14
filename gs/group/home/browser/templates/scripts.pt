@@ -1,6 +1,5 @@
 <tal:block repeat="viewlet options/viewlets">
-  <script type="text/javascript"
-    tal:content="structure viewlet/render">Script Content</script>
+  <tal:block content="structure viewlet/render">Script Content</tal:block>
 </tal:block>
 
 

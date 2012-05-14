@@ -24,6 +24,7 @@
   <!--Links in the Us Bar, telling the viewer how to change his or her
   - membership status. -->
   <browser:viewletManager
+    for="gs.group.base.interfaces.IGSGroupMarker"
     name="groupserver.GroupHomepageUsBarLinks"
     permission="zope2.View"
     provides=".interfaces.IGroupHomepageUsLinks"
@@ -41,6 +42,7 @@
   <!--Info-->
   <interface interface=".interfaces.IGroupHomepageInfo" />
   <browser:viewletManager
+    for="gs.group.base.interfaces.IGSGroupMarker"
     name="groupserver.GroupHomepageInfoTabs"
     permission="zope2.View"
     provides=".interfaces.IGroupHomepageInfo"
@@ -147,7 +149,7 @@
 
   <!--The Homepage Itself-->    
   <browser:page 
-    for="Products.XWFChat.interfaces.IGSGroupFolder"
+    for="gs.group.base.interfaces.IGSGroupMarker"
     name="index.html"
     class="gs.group.base.page.GroupPage"
     template="browser/templates/homepage.pt"
@@ -157,7 +159,7 @@
   <interface 
     interface=".interfaces.IChangeAbout"/>
   <browser:page
-    for="Products.XWFChat.interfaces.IGSGroupFolder"
+    for="gs.group.base.interfaces.IGSGroupMarker"
     name="changeabout.html"
     class=".changeabout.ChangeAbout"
     permission="zope2.ManageProperties"/>
