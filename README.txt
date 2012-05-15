@@ -2,9 +2,10 @@ Introduction
 ============
 
 This module provides the group-homepage code for `GroupServer`_. It
-mostly defines four viewlet managers, that other products fill. Two
+mostly defines *six* viewlet managers, that other products fill. Two
 managers provide `tabs`_. Two others provide the `administration links`_
-and the `us-bar links`_.
+and the `us-bar links`_. Finally, two more provide the `metadata links`_
+and `scripts`_ area that support the other content providers.
 
 Tabs
 ----
@@ -85,6 +86,24 @@ class ``gs.group.member.base.viewlet.MemberViewlet`` provides a good
 base class for the viewlet. The viewlet itself should provide a list-item
 element (``<li>``) to appear in the us-bar links.
 
+Metadata Links
+--------------
+
+The metadata for the Group page *mostly* consists of links to Web 
+feeds. These are organised by the viewlet manager
+``gs.group.home.interfaces.IGroupHomepageMetadata`` — the simplest of 
+viewlet-managers: it just renders each viewlet (in order) without any
+additional HTML.
+
+Scripts
+-------
+
+Some of the content of the Group page may need JavaScript support. The
+viewlets that supply the scripts are rendered by the 
+``gs.group.home.interfaces.IGroupHomepageScripts`` viewlet manager.
+Like the manager for the `metadata links`_, the scripts manager renders
+each viewlet (in order) without any additional HTML.
+
 Testing
 =======
 
@@ -153,7 +172,6 @@ Todo
 * Create a list of the functional tests.
 * Update the help so it matches the test.
 * Automate the test.
-* Find a unicorn that can shit diamonds.
 
 .. Resources
 
