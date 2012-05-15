@@ -90,20 +90,12 @@
     class="gs.viewlet.manager.WeightOrderedViewletManager"
     template="browser/templates/tasktabs.pt"/>
 
-  <browser:viewlet name="gs-group-home-files"
-    manager=".interfaces.IGroupHomepageTasks"
-    template="browser/templates/files.pt"
-    class=".simpletab.PublicTab"
-    permission="zope2.Public"
-    weight="1"
-    title="Files" />
-
   <browser:viewlet name="gs-group-home-settings"
     manager=".interfaces.IGroupHomepageTasks"
     template="browser/templates/settings.pt"
     class=".simpletab.MemberOnlyTab"
     permission="zope2.Public"
-    weight="2"
+    weight="40"
     title="Settings" />
 
   <!-- The Admin Tab is a viewlet that *contains* a viewlet manager. 
@@ -115,7 +107,7 @@
     template="browser/templates/admin.pt"
     class=".admin.AdminTab"
     permission="zope2.ManageUsers"
-    weight="3"
+    weight="50"
     title="Admin" />
   <interface interface=".interfaces.IGroupHomepageAdminLinks" />
   <browser:viewletManager
@@ -139,13 +131,6 @@
     permission="zope2.Public"
     provides=".interfaces.IGroupHomepageScripts"
     template="browser/templates/scripts.pt"/>
-
-  <browser:viewlet name="gs-group-home-files-script"
-    manager=".interfaces.IGroupHomepageScripts"
-    template="browser/templates/filescript.pt"
-    class=".simpletab.PublicTab"
-    permission="zope2.Public"
-    title="Files" />
 
   <!--The Homepage Itself-->    
   <browser:page 
