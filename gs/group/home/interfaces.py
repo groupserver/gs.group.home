@@ -17,6 +17,9 @@ class IGroupHomepageTasks(IViewletManager):
 class IGroupHomepageScripts(IViewletManager):
     '''A viewlet manager for the scripts on the group homepage'''
 
+class IGroupHomepageMetadata(IViewletManager):
+    '''A viewlet manager for the metadata on the group homepage'''
+
 class IGroupHomepageAdminLinks(IViewletManager):
     '''A viewlet manager for the administraton links on the group homepage'''
 

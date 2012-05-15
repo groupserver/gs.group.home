@@ -131,6 +131,13 @@
     permission="zope2.Public"
     provides=".interfaces.IGroupHomepageScripts"
     template="browser/templates/scripts.pt"/>
+  <!--Metadata-->
+  <interface interface=".interfaces.IGroupHomepageMetadata" />
+  <browser:viewletManager
+    name="groupserver.GroupHomepageMetadata"
+    permission="zope2.Public"
+    provides=".interfaces.IGroupHomepageMetadata"
+    template="browser/templates/scripts.pt"/>
 
   <!--The Homepage Itself-->    
   <browser:page 
