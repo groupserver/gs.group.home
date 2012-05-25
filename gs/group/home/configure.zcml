@@ -49,14 +49,6 @@
     class="gs.viewlet.manager.WeightOrderedViewletManager"
     template="browser/templates/infotabs.pt"/>
 
-  <browser:viewlet name="gs-group-home-about"
-    manager=".interfaces.IGroupHomepageInfo"
-    template="browser/templates/about.pt"
-    class=".abouttab.AboutTab"
-    permission="zope2.View"
-    weight="0"
-    title="About" />
-
   <browser:viewlet name="gs-group-home-members"
     manager=".interfaces.IGroupHomepageInfo"
     template="browser/templates/members.pt"
@@ -149,24 +141,10 @@
     template="browser/templates/homepage.pt"
     permission="zope2.View"/>
 
-  <!--The Change About Page-->
-  <interface 
-    interface=".interfaces.IChangeAbout"/>
-  <browser:page
-    for="gs.group.base.interfaces.IGSGroupMarker"
-    name="changeabout.html"
-    class=".changeabout.ChangeAbout"
-    permission="zope2.ManageProperties"/>
-
   <!--help-->
   <browser:viewlet name="gs-group-home-help"
     manager="gs.help.interfaces.IUserHelp"
     template="browser/templates/help.pt"
-    permission="zope2.Public"
-    weight="3" />
-  <browser:viewlet name="gs-group-home-about-help"
-    manager="gs.help.interfaces.IAdminHelp"
-    template="browser/templates/abouthelp.pt"
     permission="zope2.Public"
     weight="3" />
 

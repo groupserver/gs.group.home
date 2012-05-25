@@ -1,12 +1,10 @@
 # coding=utf-8
 """Interfaces for the the help viewlets pages."""
-from zope.interface.interface import Interface
 from zope.viewlet.interfaces import IViewletManager
 from zope.schema import Text, ASCIILine
 from zope.contentprovider.interfaces import IContentProvider
-
-import gs.group.home
 from Products.XWFCore.XWFUtils import abscompath
+import gs.group.home
 
 class IGroupHomepageInfo(IViewletManager):
     '''A viewlet manager for the Info tabs on the group homepage'''
@@ -36,9 +34,6 @@ class IGroupHomepageUsBar(IContentProvider):
         u'render the status message.',
         required=False,
         default=abscompath(gs.group.home, "browser/templates/usbar.pt"))
-
-class IChangeAbout(Interface):
-    aboutText = Text(title=u'Text',
-        description=u'The text that appears in the About tab.',
-        required = False)
+        
+from gs.group.about.interfaces import IChangeAbout
 
