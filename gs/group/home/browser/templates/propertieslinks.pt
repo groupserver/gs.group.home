@@ -1,8 +1,0 @@
-<li><a href="changeabout.html">Change the <em>About 
-      Tab.</em></a>
-<!--TODO: Ticket 699 -->
-<!--li tal:condition="view/canSetPostingLimit">
-  <a href="admingroup/editproperties/postinglimit">Change the
-    <em>posting limit</em></a>
-</li-->
-</li>
