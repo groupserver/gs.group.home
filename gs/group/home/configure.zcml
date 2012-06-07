@@ -49,6 +49,7 @@
     class="gs.viewlet.manager.WeightOrderedViewletManager"
     template="browser/templates/infotabs.pt"/>
 
+  <!--TODO: Move to gs.group.members.base -->
   <browser:viewlet name="gs-group-home-members"
     manager=".interfaces.IGroupHomepageInfo"
     template="browser/templates/members.pt"
