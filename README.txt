@@ -1,14 +1,77 @@
+============
 Introduction
 ============
 
-This module provides the group-homepage code for `GroupServer`_. It
-mostly defines *six* viewlet managers, that other products fill. Two
-managers provide `tabs`_. Two others provide the `administration links`_
-and the `us-bar links`_. Finally, two more provide the `metadata links`_
-and `scripts`_ area that support the other content providers.
+This module mostly provides support for the `group page`_ for
+`GroupServer`_ groups. Because the page is used by so many different types
+of people for different things `testing`_ is difficult.
+
+==========
+Group Page
+==========
+
+The group page is mostly made up of *six* viewlet managers, which other
+products fill. Two managers provide `tabs`_. Two others provide the
+`administration links`_ and the `us-bar links`_. Finally, two more provide
+the `metadata links`_ and `scripts`_ area that support the other content
+providers. The arrangement of the six viewlet managers is shown below::
+
+  ┌Page───────────────────────────────────────────────────────────────┐
+  │┌Head─────────────────────────────────────────────────────────────┐│
+  ││gs.group.home.interfaces.IGroupHomepageMetadata                  ││
+  │└─────────────────────────────────────────────────────────────────┘│
+  │┌Body─────────────────────────────────────────────────────────────┐│
+  ││┌───────────────────────────────────────────────────────────────┐││
+  │││Us Bar                                                         │││
+  │││┌─────────────────────────────────────────────────────────────┐│││
+  ││││Us Bar Links                                                 ││││
+  ││││gs.group.home.interfaces.IGroupHomepageUsLinks               ││││
+  │││└─────────────────────────────────────────────────────────────┘│││
+  ││└───────────────────────────────────────────────────────────────┘││
+  ││┌───────────────────────────────┬───────────────────────────────┐││
+  │││Info Tabs                      │Task Tabs                      │││
+  │││.interfaces.IGroupHomepageInfo │.interfaces.IGroupHomepageTasks│││
+  │││                               │┌─────────────────────────────┐│││
+  │││                               ││Admin Tab                    ││││
+  │││                               ││IGroupHomepageAdminLinks     ││││
+  │││                               │└─────────────────────────────┘│││
+  ││└───────────────────────────────┴───────────────────────────────┘││
+  │└─────────────────────────────────────────────────────────────────┘│
+  │┌Scripts──────────────────────────────────────────────────────────┐│
+  ││gs.group.home.interfaces.IGroupHomepageScripts                   ││
+  │└─────────────────────────────────────────────────────────────────┘│
+  └───────────────────────────────────────────────────────────────────┘
+
+Metadata Links
+==============
+
+The metadata for the Group page *mostly* consists of links to Web 
+feeds. These are organised by the viewlet manager
+``gs.group.home.interfaces.IGroupHomepageMetadata`` — the simplest of 
+viewlet-managers: it just renders each viewlet (in order) without any
+additional HTML.
+
+Us-Bar Links
+============
+
+The us-bar contains some links to do with changing membership:
+
+* Signing up,
+* Joining,
+* Requesting membership, and
+* Leaving
+
+The links themselves are provided by the respective modules. All the
+homepage does is provide the viewlet manager that displays the links.
+
+To add a link to the us-bar create a viewlet that has
+``gs.group.home.interfaces.IGroupHomepageUsLinks`` as the manager. The
+class ``gs.group.member.base.viewlet.MemberViewlet`` provides a good
+base class for the viewlet. The viewlet itself should provide a list-item
+element (``<li>``) to appear in the us-bar links.
 
 Tabs
-----
+====
 
 There are two sets of tabs on the homepage: the `Info Tabs`_ and the
 `Task Tabs`_.  Both sets of tabs are handled by *viewlet managers*,
@@ -19,7 +82,7 @@ with the tabs appearing as `viewlets`_. The viewlets have to provide a
 viewlet to that of the viewlet you wish to overwrite.
 
 Info Tabs
-~~~~~~~~~
+---------
 
 The information tabs tells the user general information about the group:
 the membership, statistics, and privacy for example. 
@@ -29,7 +92,7 @@ To add a tab to the info tabs create a *viewlet* that has
 ``gs.group.base.viewlet.GroupViewlet`` provides a good base for a tab.
 
 Task Tabs
-~~~~~~~~~
+---------
 
 The task tabs tells the user to carry out active tasks in the group:
 the viewing topics, files, and changing settings for example.
@@ -38,8 +101,11 @@ To add a tab to the task tabs create a *viewlet* that has
 ``gs.group.home.interfaces.IGroupHomepageTasks`` as the manager. The
 ``gs.group.base.viewlet.GroupViewlet`` provides a good base for a tab.
 
+This module provides an *Administration* tab, which sits within the Task
+Tabs. The *Admin* tab provides the `administration links`_.
+
 Administration Links
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 The **Admin** tab contains links to many of the administration functions
 within a group. The tab is a viewlet, sitting inside the `task
@@ -67,36 +133,8 @@ of administrator.
 3. A **manager** is the GroupServer of a super-user. In the context of
    a group a manager has the same powers as a site administrator.
 
-Us-Bar Links
-------------
-
-The us-bar contains some links to do with changing membership:
-
-* Signing up,
-* Joining,
-* Requesting membership, and
-* Leaving
-
-The links themselves are provided by the respective modules. All the
-homepage does is provide the viewlet manager that displays the links.
-
-To add a link to the us-bar create a viewlet that has
-``gs.group.home.interfaces.IGroupHomepageUsLinks`` as the manager. The
-class ``gs.group.member.base.viewlet.MemberViewlet`` provides a good
-base class for the viewlet. The viewlet itself should provide a list-item
-element (``<li>``) to appear in the us-bar links.
-
-Metadata Links
---------------
-
-The metadata for the Group page *mostly* consists of links to Web 
-feeds. These are organised by the viewlet manager
-``gs.group.home.interfaces.IGroupHomepageMetadata`` — the simplest of 
-viewlet-managers: it just renders each viewlet (in order) without any
-additional HTML.
-
 Scripts
--------
+=======
 
 Some of the content of the Group page may need JavaScript support. The
 viewlets that supply the scripts are rendered by the 
@@ -104,6 +142,7 @@ viewlets that supply the scripts are rendered by the
 Like the manager for the `metadata links`_, the scripts manager renders
 each viewlet (in order) without any additional HTML.
 
+=======
 Testing
 =======
 
@@ -165,7 +204,7 @@ D
   to post.
 
 Todo
------
+====
 
 * Add site-admin-non-member and manager-non-member columns.
 * Write down what to test.
