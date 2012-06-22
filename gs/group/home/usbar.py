@@ -34,7 +34,7 @@ class UsBar(GroupContentProvider):
         self.postingMembers = []
         if self.viewTopics:
             # If you cannot see the topics you should not see who posted
-            uq = MembersQuery(self.context.zsqlalchemy)
+            uq = MembersQuery()
             ml = uq.posting_authors(self.siteInfo.id, self.groupInfo.id)
             ctx = self.context
             self.postingMembers = \

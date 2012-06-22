@@ -76,8 +76,7 @@ class Auditor(object):
         self.siteInfo = siteInfo
         self.groupInfo = groupInfo
         
-        da = groupInfo.groupObj.zsqlalchemy
-        self.queries = AuditQuery(da)
+        self.queries = AuditQuery()
         self.factory = AuditEventFactory()
         
     def info(self, code, adminInfo, instanceDatum = '', supplementaryDatum = ''):
