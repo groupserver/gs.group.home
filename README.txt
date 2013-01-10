@@ -3,44 +3,37 @@ Introduction
 ============
 
 This module mostly provides support for the `group page`_ for
-`GroupServer`_ groups. Because the page is used by so many different types
-of people for different things `testing`_ is difficult.
+GroupServer_ groups. Because the page is used by so many different types
+of people for different things testing_ is difficult.
 
 ==========
 Group Page
 ==========
 
-The group page is mostly made up of *six* viewlet managers, which other
-products fill. Two managers provide `tabs`_. Two others provide the
-`administration links`_ and the `us-bar links`_. Finally, two more provide
-the `metadata links`_ and `scripts`_ area that support the other content
-providers. The arrangement of the six viewlet managers is shown below::
+The group page is mostly made up of *five* viewlet managers, which other
+products fill. Two managers provide spaces for the information_ about the
+group. One provides the `administration links`_. Finally, two more provide
+the `metadata links`_ and scripts_ area that support the other content
+providers. The arrangement of the five viewlet managers is shown below::
 
-  ┌Page───────────────────────────────────────────────────────────────┐
-  │┌Head─────────────────────────────────────────────────────────────┐│
-  ││gs.group.home.interfaces.IGroupHomepageMetadata                  ││
-  │└─────────────────────────────────────────────────────────────────┘│
-  │┌Body─────────────────────────────────────────────────────────────┐│
-  ││┌───────────────────────────────────────────────────────────────┐││
-  │││Us Bar                                                         │││
-  │││┌─────────────────────────────────────────────────────────────┐│││
-  ││││Us Bar Links                                                 ││││
-  ││││gs.group.home.interfaces.IGroupHomepageUsLinks               ││││
-  │││└─────────────────────────────────────────────────────────────┘│││
-  ││└───────────────────────────────────────────────────────────────┘││
-  ││┌───────────────────────────────┬───────────────────────────────┐││
-  │││Info Tabs                      │Task Tabs                      │││
-  │││.interfaces.IGroupHomepageInfo │.interfaces.IGroupHomepageTasks│││
-  │││                               │┌─────────────────────────────┐│││
-  │││                               ││Admin Tab                    ││││
-  │││                               ││IGroupHomepageAdminLinks     ││││
-  │││                               │└─────────────────────────────┘│││
-  ││└───────────────────────────────┴───────────────────────────────┘││
-  │└─────────────────────────────────────────────────────────────────┘│
-  │┌Scripts──────────────────────────────────────────────────────────┐│
-  ││gs.group.home.interfaces.IGroupHomepageScripts                   ││
-  │└─────────────────────────────────────────────────────────────────┘│
-  └───────────────────────────────────────────────────────────────────┘
+  ┌Page────────────────────────────────────────────────────────────────────┐
+  │┌Head──────────────────────────────────────────────────────────────────┐│
+  ││gs.group.home.interfaces.IGroupHomepageMetadata                       ││
+  │└──────────────────────────────────────────────────────────────────────┘│
+  │┌Body──────────────────────────────────────────────────────────────────┐│
+  ││┌───────────────────────────────┬────────────────────────────────────┐││
+  │││Main information               │Secondary information               │││
+  │││.interfaces.IGroupHomepageMain │.interfaces.IGroupHomepageSecondary │││
+  │││                               │┌──────────────────────────────────┐│││
+  │││                               ││Admin Tab                         ││││
+  │││                               ││IGroupHomepageAdminLinks          ││││
+  │││                               │└──────────────────────────────────┘│││
+  ││└───────────────────────────────┴────────────────────────────────────┘││
+  │└──────────────────────────────────────────────────────────────────────┘│
+  │┌Scripts───────────────────────────────────────────────────────────────┐│
+  ││gs.group.home.interfaces.IGroupHomepageScripts                        ││
+  │└──────────────────────────────────────────────────────────────────────┘│
+  └────────────────────────────────────────────────────────────────────────┘
 
 Metadata Links
 ==============
@@ -51,55 +44,35 @@ feeds. These are organised by the viewlet manager
 viewlet-managers: it just renders each viewlet (in order) without any
 additional HTML.
 
-Us-Bar Links
-============
+Information
+===========
 
-The us-bar contains some links to do with changing membership:
+There are two sets of information on the homepage: the `main information`_
+and the `secondary information`_.  Both are handled by *viewlet managers*,
+with the blocks of information provided by viewlets_.
 
-* Signing up,
-* Joining,
-* Requesting membership, and
-* Leaving
+:Note: To over-ride an existing tab, change the ``name`` of the viewlet to
+       that of the viewlet you wish to overwrite.
 
-The links themselves are provided by the respective modules. All the
-homepage does is provide the viewlet manager that displays the links.
+Main Information
+----------------
 
-To add a link to the us-bar create a viewlet that has
-``gs.group.home.interfaces.IGroupHomepageUsLinks`` as the manager. The
-class ``gs.group.member.base.viewlet.MemberViewlet`` provides a good
-base class for the viewlet. The viewlet itself should provide a list-item
-element (``<li>``) to appear in the us-bar links.
-
-Tabs
-====
-
-There are two sets of tabs on the homepage: the `Info Tabs`_ and the
-`Task Tabs`_.  Both sets of tabs are handled by *viewlet managers*,
-with the tabs appearing as `viewlets`_. The viewlets have to provide a
-``<div>`` element, which will be styled by `jQuery.UI`_.
-
-**Note** To over-ride an existing tab, change the ``name`` of the 
-viewlet to that of the viewlet you wish to overwrite.
-
-Info Tabs
----------
-
-The information tabs tells the user general information about the group:
-the membership, statistics, and privacy for example. 
+The main portion of the page (33 units wide) is taken up by the *Main
+Information*.  The information tabs tells the user general information
+about the group: what the group is for, and the main activity in the group.
 
 To add a tab to the info tabs create a *viewlet* that has
-``gs.group.home.interfaces.IGroupHomepageInfo`` as the manager. The
-``gs.group.base.viewlet.GroupViewlet`` provides a good base for a tab.
+``gs.group.home.interfaces.IGroupHomepageMain`` as the manager.
 
-Task Tabs
----------
+Secondary Information
+---------------------
 
-The task tabs tells the user to carry out active tasks in the group:
-the viewing topics, files, and changing settings for example.
+Less important information about the group appears in the *Secondary
+Information* area. It is normally formatted as a narrow strip (15.5 units
+wide).
 
 To add a tab to the task tabs create a *viewlet* that has
-``gs.group.home.interfaces.IGroupHomepageTasks`` as the manager. The
-``gs.group.base.viewlet.GroupViewlet`` provides a good base for a tab.
+``gs.group.home.interfaces.IGroupHomepageSecondary`` as the manager.
 
 This module provides an *Administration* tab, which sits within the Task
 Tabs. The *Admin* tab provides the `administration links`_.
@@ -108,8 +81,8 @@ Administration Links
 ~~~~~~~~~~~~~~~~~~~~
 
 The **Admin** tab contains links to many of the administration functions
-within a group. The tab is a viewlet, sitting inside the `task
-tabs`_. However, the tab is also a *viewlet manager*: it contains
+within a group. The tab is a viewlet, sitting inside the `secondary
+information`_. However, the tab is also a *viewlet manager*: it contains
 viewlets that link to the administration pages.
 
 To add a link to the administration links create a viewlet that has
@@ -212,9 +185,15 @@ Todo
 * Update the help so it matches the test.
 * Automate the test.
 
-.. Resources
+=========
+Resources
+=========
+
+- Code repository: https://source.iopen.net/groupserver/gs.group.home
+- Questions and comments to http://groupserver.org/groups/development
+- Report bugs at https://redmine.iopen.net/projects/groupserver
 
 .. _GroupServer: http://groupserver.org
-.. _viewlets: http://jqueryui.com/demos/tabs/
-.. _jQuery.UI: http://jqueryui.com/demos/tabs/
+.. _viewlets: http://docs.zope.org/zope.viewlet
+.. _jQuery.UI: http://jqueryui.com
 
