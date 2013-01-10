@@ -1,49 +1,41 @@
 # coding=utf-8
+from zope.cachedescriptors.property import Lazy
 from zope.component import createObject
-from AccessControl import getSecurityManager
-from gs.group.base.contentprovider import GroupContentProvider
 from Products.GSGroupMember.groupmembership import user_member_of_group
+from gs.group.base import GroupViewlet
 
-class SimpleTab(GroupContentProvider):
-    def __init__(self, group, request, view, manager):
-        GroupContentProvider.__init__(self, group, request, view)
-        self.manager = manager
 
-class UserInfoTab(SimpleTab):
+class SimpleTab(GroupViewlet):
     def __init__(self, group, request, view, manager):
-        SimpleTab.__init__(self, group, request, view, manager)
-        self.manager = manager
-        self.__userInfo = None
-        self.__isMember = None
-    
-    @property
-    def userInfo(self):
-        if self.__userInfo == None:
-            self.__userInfo = createObject('groupserver.LoggedInUser', 
-                                            self.context)
-        return self.__userInfo
-        
-    @property
+        super(SimpleTab, self).__init__(group, request, view, manager)
+        # FIXME: Deprecate
+
+
+class UserInfoTab(GroupViewlet):
+    def __init__(self, group, request, view, manager):
+        super(UserInfoTab, self).__init__(group, request, view, manager)
+
+    @Lazy
     def isMember(self):
-        if self.__isMember == None:
-            self.__isMember = user_member_of_group(self.userInfo, 
-                                                    self.context)
-        return self.__isMember
-
-    @property
-    def canJoin(self):
-        mailingListInfo = createObject('groupserver.MailingListInfo', 
-                                        self.context)
-        retval = not(self.isMember) and mailingListInfo.get_property('subscribe')
+        retval = user_member_of_group(self.userInfo, self.context)
         return retval
-  
+
+    @Lazy
+    def canJoin(self):
+        mailingListInfo = createObject('groupserver.MailingListInfo',
+                                        self.context)
+        retval = not(self.isMember) and \
+                    mailingListInfo.get_property('subscribe')
+        return retval
+
+
 class MemberOnlyTab(UserInfoTab):
-    @property
+    @Lazy
     def show(self):
         return self.isMember
 
+
 class PublicTab(UserInfoTab):
-    @property
+    @Lazy
     def show(self):
         return self.viewTopics
-

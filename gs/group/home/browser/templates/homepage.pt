@@ -14,46 +14,28 @@
     </tal:block>
   </head>
   <body>
+    <ul metal:fill-slot="breadcrumb">
+      <li><a tal:attributes="title string:${view/siteInfo/name} Homepage"
+             href="/" title="Home">&#8962;</a></li>
+      <li>
+        <span class="group" 
+              tal:content="view/groupInfo/name">This group</span>
+      </li>
+    </ul>
     <tal:block metal:fill-slot="body">
-      <div id="group-intro">
-        <!--TODO:Put the group photo here, floated to the left 
-          - https://projects.iopen.net/groupserver/ticket/506
-        -->
-        <h1 class="fn" tal:content="view/groupInfo/name">Group</h1>
-        <p id="description"
-          tal:define="desc python:view.groupInfo.get_property('description')">
-          <span class="desc" tal:content="desc">stuff</span>
-        </p>
-      </div><!--group-intro-->
-      <p tal:replace="structure provider:groupserver.UsBar">
-        The Us Bar
-      </p>
-      <div class="cols">
-        <div class="rightColumn">
-          <p 
-            tal:replace="structure provider:groupserver.GroupHomepageTaskTabs">
-            The task tabs.
+      <div class="gs-content-layout-cols">
+        <div class="main">
+          <h1 class="fn" tal:content="view/groupInfo/name">Group</h1>
+          <p tal:replace="structure provider:groupserver.GroupHomepageMain">
+            I am a fish.
           </p>
-        </div><!--right-->
-        <div class="leftColumn">
-          <p 
-            tal:replace="structure provider:groupserver.GroupHomepageInfoTabs">
-            The info tabs.
-          </p>
-        </div><!--left-->
-      </div><!--cols-->
+        </div><!--main-->
+        <div class="secondary">
+          I like to swim in the sea.
+        </div><!--secondary-->
+      </div><!--gs-content-layout-cols-->
     </tal:block>
     <tal:block metal:fill-slot="javascript">
-      <script type="text/javascript" src="/++resource++sharebox-20100721.js">&#160;</script>
-      <script src="/++resource++jquery-ui-1.8.9.custom.min.js" 
-        type="text/javascript">&#160;</script>
-      <script type="text/javascript">
-        jQuery.noConflict()
-        jQuery(document).ready( function () {
-          jQuery("#info-tabs").tabs();
-          jQuery("#task-tabs").tabs();
-        });
-      </script>        
       <tal:block
         replace="structure provider:groupserver.GroupHomepageScripts">
         The scripts required by the tabs.

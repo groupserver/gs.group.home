@@ -5,113 +5,62 @@
   xmlns:sqlos="http://namespaces.sqlobject.org/sqlos"
   xmlns:five="http://namespaces.zope.org/five">
   <include package="zope.viewlet" file="meta.zcml" />
-  
-  <!--The Us Bar-->
-  <!--=mpj17= While viewlets have some ZCML support, the simpler content
-    - providers do not. Odd. -->
-  <interface 
-    interface=".interfaces.IGroupHomepageUsBar"
-    type="zope.contentprovider.interfaces.ITALNamespaceData"/>
-  <class class=".usbar.UsBar">
-    <implements interface=".interfaces.IGroupHomepageUsBar"/>
-  </class>
-  <adapter
-    for="zope.interface.Interface zope.publisher.interfaces.browser.IDefaultBrowserLayer zope.interface.Interface"
-    factory=".usbar.UsBar"
-    provides="zope.contentprovider.interfaces.IContentProvider"
-    name="groupserver.UsBar"/>
 
-  <!--Links in the Us Bar, telling the viewer how to change his or her
-  - membership status. -->
   <browser:viewletManager
+    name="groupserver.GroupHomepageMain"
     for="gs.group.base.interfaces.IGSGroupMarker"
-    name="groupserver.GroupHomepageUsBarLinks"
-    permission="zope2.View"
-    provides=".interfaces.IGroupHomepageUsLinks"
+    provides=".interfaces.IGroupHomepageMain"
     class="gs.viewlet.manager.WeightOrderedViewletManager"
-    template="browser/templates/adminlinks.pt"/>
-  <!--=mpj17= should this go in Products.GSLogin?-->
-  <browser:viewlet name="gs-group-home-login-link"
-    manager=".interfaces.IGroupHomepageUsLinks"
+    template="browser/templates/simplemanager.pt"
+    permission="zope2.View" />
+
+  <browser:viewlet 
+    name="gs-group-home-stats"
+    manager=".interfaces.IGroupHomepageMain"
+    class=".simpletab.SimpleTab"
+    template="browser/templates/stats.pt"
+    permission="zope2.View"
+    weight="10"
+    title="Statistics" />
+
+  <browser:viewletManager
+    name="groupserver.GroupHomepageSecondary"
+    for="gs.group.base.interfaces.IGSGroupMarker"
+    provides=".interfaces.IGroupHomepageSecondary"
+    class="gs.viewlet.manager.WeightOrderedViewletManager"
+    template="browser/templates/simplemanager.pt"
+    permission="zope2.View" />
+
+  <browser:viewlet 
+    name="gs-group-home-login-link"
+    manager=".interfaces.IGroupHomepageSecondary"
     template="browser/templates/login_link.pt"
     class=".loginlink.LoginLinkViewlet"
     permission="zope2.View"
-    weight="2"
+    weight="10"
     title="Login" />
-  
-  <!--Info-->
-  <interface interface=".interfaces.IGroupHomepageInfo" />
-  <browser:viewletManager
-    for="gs.group.base.interfaces.IGSGroupMarker"
-    name="groupserver.GroupHomepageInfoTabs"
-    permission="zope2.View"
-    provides=".interfaces.IGroupHomepageInfo"
-    class="gs.viewlet.manager.WeightOrderedViewletManager"
-    template="browser/templates/infotabs.pt"/>
-
-  <!--TODO: Move to gs.group.members.base -->
-  <browser:viewlet name="gs-group-home-members"
-    manager=".interfaces.IGroupHomepageInfo"
-    template="browser/templates/members.pt"
-    class=".simpletab.PublicTab"
-    permission="zope2.View"
-    weight="1"
-    title="Members" />
-
-  <browser:viewlet name="gs-group-home-stats"
-    manager=".interfaces.IGroupHomepageInfo"
-    template="browser/templates/stats.pt"
-    class=".simpletab.SimpleTab"
-    permission="zope2.View"
-    weight="2"
-    title="Statistics" />
-
-  <browser:viewlet name="gs-group-home-privacy"
-    manager=".interfaces.IGroupHomepageInfo"
-    template="browser/templates/privacy.pt"
-    class=".simpletab.SimpleTab"
-    permission="zope2.View"
-    weight="3"
-    title="Privacy" />
-
-  <!--Tasks-->
-  <interface interface=".interfaces.IGroupHomepageTasks" />
-  <browser:viewletManager
-    name="groupserver.GroupHomepageTaskTabs"
-    permission="zope2.Public"
-    provides=".interfaces.IGroupHomepageTasks"
-    class="gs.viewlet.manager.WeightOrderedViewletManager"
-    template="browser/templates/tasktabs.pt"/>
-
-  <browser:viewlet name="gs-group-home-settings"
-    manager=".interfaces.IGroupHomepageTasks"
-    template="browser/templates/settings.pt"
-    class=".simpletab.MemberOnlyTab"
-    permission="zope2.Public"
-    weight="40"
-    title="Settings" />
 
   <!-- The Admin Tab is a viewlet that *contains* a viewlet manager. 
      -  The different eggs fill in the links to the different admin
      -  functions.
      -->
-  <browser:viewlet name="gs-group-home-admin"
-    manager=".interfaces.IGroupHomepageTasks"
-    template="browser/templates/admin.pt"
+  <browser:viewlet 
+    name="gs-group-home-admin"
+    manager=".interfaces.IGroupHomepageSecondary"
     class=".admin.AdminTab"
+    template="browser/templates/admin.pt"
     permission="zope2.ManageUsers"
-    weight="50"
+    weight="5"
     title="Admin" />
-  <interface interface=".interfaces.IGroupHomepageAdminLinks" />
   <browser:viewletManager
     name="groupserver.GroupHomepageAdminLinks"
-    permission="zope2.View"
+    for="gs.group.base.interfaces.IGSGroupMarker"
     provides=".interfaces.IGroupHomepageAdminLinks"
     class="gs.viewlet.manager.WeightOrderedViewletManager"
-    template="browser/templates/adminlinks.pt"/>
+    template="browser/templates/adminlinks.pt"
+    permission="zope2.View" />
 
   <!--Scripts-->
-  <interface interface=".interfaces.IGroupHomepageScripts" />
   <browser:viewletManager
     name="groupserver.GroupHomepageScripts"
     permission="zope2.Public"
@@ -119,7 +68,6 @@
     class="gs.viewlet.manager.WeightOrderedViewletManager"
     template="browser/templates/simplemanager.pt"/>
   <!--Metadata-->
-  <interface interface=".interfaces.IGroupHomepageMetadata" />
   <browser:viewletManager
     name="groupserver.GroupHomepageMetadata"
     permission="zope2.Public"
