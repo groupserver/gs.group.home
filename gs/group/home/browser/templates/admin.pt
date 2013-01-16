@@ -1,10 +1,7 @@
-<div>
-  <p>
-    As an administrator, you can perform the following tasks:
-  </p>
-   <tal:block 
-    content="structure provider:groupserver.GroupHomepageAdminLinks">
-    Stuff
-  </tal:block>
-</div>
-
+<div id="gs-group-home-admin">
+  <h3>Admin</h3>
+   <p 
+    tal:replace="structure provider:groupserver.GroupHomepageAdminLinks">
+     Administration stuff goes here.
+   </p>
+</div><!--gs-group-home-admin-->
