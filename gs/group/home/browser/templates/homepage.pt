@@ -30,7 +30,8 @@
             I am a fish.
           </p>
         </div><!--main-->
-        <div class="secondary">
+        <div class="secondary" 
+             tal:content="structure provider:groupserver.GroupHomepageSecondary">
           I like to swim in the sea.
         </div><!--secondary-->
       </div><!--gs-content-layout-cols-->
