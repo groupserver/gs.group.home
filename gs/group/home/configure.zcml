@@ -17,7 +17,7 @@
   <browser:viewlet 
     name="gs-group-home-stats"
     manager=".interfaces.IGroupHomepageMain"
-    class=".simpletab.SimpleTab"
+    class=".stats.GroupStats"
     template="browser/templates/stats.pt"
     permission="zope2.View"
     weight="10"
@@ -31,15 +31,6 @@
     template="browser/templates/simplemanager.pt"
     permission="zope2.View" />
 
-  <browser:viewlet 
-    name="gs-group-home-login-link"
-    manager=".interfaces.IGroupHomepageSecondary"
-    template="browser/templates/login_link.pt"
-    class=".loginlink.LoginLinkViewlet"
-    permission="zope2.View"
-    weight="10"
-    title="Login" />
-
   <!-- The Admin Tab is a viewlet that *contains* a viewlet manager. 
      -  The different eggs fill in the links to the different admin
      -  functions.
@@ -50,7 +41,7 @@
     class=".admin.AdminTab"
     template="browser/templates/admin.pt"
     permission="zope2.ManageUsers"
-    weight="5"
+    weight="100"
     title="Admin" />
   <browser:viewletManager
     name="groupserver.GroupHomepageAdminLinks"
