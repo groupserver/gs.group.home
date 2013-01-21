@@ -31,7 +31,7 @@
     template="browser/templates/simplemanager.pt"
     permission="zope2.View" />
 
-  <!-- The Admin Tab is a viewlet that *contains* a viewlet manager. 
+  <!-- The Admin is a viewlet that *contains* a viewlet manager. 
      -  The different eggs fill in the links to the different admin
      -  functions.
      -->
@@ -44,11 +44,11 @@
     weight="100"
     title="Admin" />
   <browser:viewletManager
-    name="groupserver.GroupHomepageAdminLinks"
+    name="groupserver.GroupHomepageAdmin"
     for="gs.group.base.interfaces.IGSGroupMarker"
-    provides=".interfaces.IGroupHomepageAdminLinks"
+    provides=".interfaces.IGroupHomepageAdmin"
     class="gs.viewlet.manager.WeightOrderedViewletManager"
-    template="browser/templates/adminlinks.pt"
+    template="browser/templates/simplemanager.pt"
     permission="zope2.View" />
 
   <!--Scripts-->

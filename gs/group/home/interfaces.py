@@ -1,8 +1,9 @@
 # coding=utf-8
 """Interfaces for the the help viewlets pages."""
-from zope.viewlet.interfaces import IViewletManager
-from zope.schema import Text, ASCIILine
 from zope.contentprovider.interfaces import IContentProvider
+from zope.interface.interface import Interface
+from zope.schema import Text, ASCIILine
+from zope.viewlet.interfaces import IViewletManager
 from Products.XWFCore.XWFUtils import abscompath
 import gs.group.home
 
@@ -33,6 +34,8 @@ class IGroupHomepageUsBar(IContentProvider):
         required=False,
         default=abscompath(gs.group.home, "browser/templates/usbar.pt"))
 
+class IGroupHomepageAdminLinks(IViewletManager):
+    '''A viewlet manager for the administraton links on the group homepage'''
 
 # New:
 
@@ -57,5 +60,10 @@ class IGroupHomepageScripts(IViewletManager):
     '''A viewlet manager for the scripts on the group homepage'''
 
 
-class IGroupHomepageAdminLinks(IViewletManager):
-    '''A viewlet manager for the administraton links on the group homepage'''
+class IGroupHomepageAdmin(IGroupHomepageAdminLinks):
+    pass
+
+# Legacy
+
+class IChangeAbout(Interface):
+    pass

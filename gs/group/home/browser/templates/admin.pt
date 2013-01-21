@@ -1,7 +1,7 @@
 <div id="gs-group-home-admin">
   <h3>Admin</h3>
    <p 
-    tal:replace="structure provider:groupserver.GroupHomepageAdminLinks">
+    tal:replace="structure provider:groupserver.GroupHomepageAdmin">
      Administration stuff goes here.
    </p>
 </div><!--gs-group-home-admin-->
