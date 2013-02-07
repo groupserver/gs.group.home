@@ -22,7 +22,7 @@
               tal:content="view/groupInfo/name">This group</span>
       </li>
     </ul>
-    <tal:block metal:fill-slot="body">
+    <tal:block metal:fill-slot="body" role="main">
       <div class="gs-content-layout-cols">
         <div class="main">
           <h1 class="fn" tal:content="view/groupInfo/name">Group</h1>
