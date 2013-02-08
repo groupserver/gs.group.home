@@ -22,8 +22,8 @@
               tal:content="view/groupInfo/name">This group</span>
       </li>
     </ul>
-    <tal:block metal:fill-slot="body" role="main">
-      <div class="gs-content-layout-cols">
+    <tal:block metal:fill-slot="body">
+      <div id="gs-group-home" class="gs-content-layout-cols" role="main">
         <div class="main">
           <h1 class="fn" tal:content="view/groupInfo/name">Group</h1>
           <p tal:replace="structure provider:groupserver.GroupHomepageMain">
