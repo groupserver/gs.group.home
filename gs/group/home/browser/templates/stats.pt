@@ -1,14 +1,14 @@
 <div tal:define="c view/membersInfo/fullMemberCount;
                  plural python:c &gt; 1"
      class="minor" id="gs-group-home-stats">
-  <p>
+  <p class="muted">
     This is a 
-    <strong><span tal:content="view/visibility/visibility">liberated</span> 
-      group</strong> 
+    <em><span tal:content="view/visibility/visibility">liberated</span> 
+      group</em> 
     with 
-    <strong><span tal:content="c">some</span> 
+    <em><span tal:content="c">some</span> 
       <span tal:condition="plural">members.</span>
-      <span tal:condition="not:plural">member.</span></strong>
+      <span tal:condition="not:plural">member.</span></em>
   </p>
   <!--p>
     <a href="stats.html">The statistics page</a> contains more details
