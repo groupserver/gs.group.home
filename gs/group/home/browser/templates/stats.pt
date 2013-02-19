@@ -1,7 +1,7 @@
-<div tal:define="c view/membersInfo/fullMemberCount;
-                 plural python:c &gt; 1"
-     class="minor" id="gs-group-home-stats">
-  <p class="muted">
+<div class="muted" id="gs-group-home-stats" role="region"
+     tal:define="c view/membersInfo/fullMemberCount;
+                 plural python:c &gt; 1">
+  <p>
     This is a 
     <em><span tal:content="view/visibility/visibility">liberated</span> 
       group</em> 
