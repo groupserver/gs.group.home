@@ -22,20 +22,21 @@
               tal:content="view/groupInfo/name">This group</span>
       </li>
     </ul>
-    <tal:block metal:fill-slot="body">
-      <div id="gs-group-home" class="gs-content-layout-cols" role="main">
-        <div class="main">
-          <h1 class="fn" tal:content="view/groupInfo/name">Group</h1>
-          <p tal:replace="structure provider:groupserver.GroupHomepageMain">
-            I am a fish.
-          </p>
-        </div><!--main-->
-        <div class="secondary" 
-             tal:content="structure provider:groupserver.GroupHomepageSecondary">
-          I like to swim in the sea.
-        </div><!--secondary-->
-      </div><!--gs-content-layout-cols-->
-    </tal:block>
+    <div id="gs-group-home" class="gs-content-layout-cols" role="main"
+         aria-labelledby="gs-group-home-h"
+         metal:fill-slot="body">
+      <div class="main">
+        <h1 id="gs-group-home-h" class="fn" 
+            tal:content="view/groupInfo/name">Group</h1>
+        <p tal:replace="structure provider:groupserver.GroupHomepageMain">
+          I am a fish.
+        </p>
+      </div><!--main-->
+      <div class="secondary" 
+           tal:content="structure provider:groupserver.GroupHomepageSecondary">
+        I like to swim in the sea.
+      </div><!--secondary-->
+    </div><!--gs-group-home-->
     <tal:block metal:fill-slot="javascript">
       <tal:block
         replace="structure provider:groupserver.GroupHomepageScripts">
