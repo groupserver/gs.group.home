@@ -8,9 +8,13 @@
         replace="string:${view/groupInfo/name}: ${view/siteInfo/name}"/>
     </title>
     <!--TODO: Metadata-->
-    <tal:block metal:fill-slot="metadata"
-      replace="structure provider:groupserver.GroupHomepageMetadata">
-      The metadata for the Group page.
+    <tal:block metal:fill-slot="metadata">
+      <link rel="up" href="/" title="Site Home" 
+            tal:attributes="title string:${view/siteInfo/name} Home;"/>
+      <tal:block
+        replace="structure provider:groupserver.GroupHomepageMetadata">
+        The metadata for the Group page.
+      </tal:block>
     </tal:block>
   </head>
   <body>
