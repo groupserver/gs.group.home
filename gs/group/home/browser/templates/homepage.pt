@@ -40,6 +40,7 @@
            tal:content="structure provider:groupserver.GroupHomepageSecondary">
         I like to swim in the sea.
       </div><!--secondary-->
+      <div class="noFloat">foo</div>
     </div><!--gs-group-home-->
     <tal:block metal:fill-slot="javascript">
       <tal:block
