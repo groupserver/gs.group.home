@@ -38,7 +38,7 @@
   <browser:viewlet 
     name="gs-group-home-admin"
     manager=".interfaces.IGroupHomepageSecondary"
-    class=".admin.AdminTab"
+    class="gs.group.base.GroupViewlet"
     template="browser/templates/admin.pt"
     permission="zope2.ManageUsers"
     weight="100"
