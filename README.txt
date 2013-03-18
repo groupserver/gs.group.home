@@ -1,3 +1,19 @@
+===================
+``gs.group.home``
+===================
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+The GroupServer Group Page
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:Author: `Michael JasonSmith`_
+:Contact: Michael JasonSmith <mpj17@onlinegroups.net>
+:Date: 2013-03-18
+:Organization: `GroupServer.org`_
+:Copyright: This document is licensed under a
+  `Creative Commons Attribution-Share Alike 3.0 New Zealand License`_
+  by `OnlineGroups.Net`_.
+
+
 ============
 Introduction
 ============
@@ -12,9 +28,9 @@ Group Page
 
 The group page is mostly made up of *five* viewlet managers, which other
 products fill. Two managers provide spaces for the information_ about the
-group. One provides the `administration links`_. Finally, two more provide
-the `metadata links`_ and scripts_ area that support the other content
-providers. The arrangement of the five viewlet managers is shown below::
+group. Finally, two more provide the `metadata links`_ and scripts_ area
+that support the other content providers. The arrangement of the five
+viewlet managers is shown below::
 
   ┌Page────────────────────────────────────────────────────────────────────┐
   │┌Head──────────────────────────────────────────────────────────────────┐│
@@ -42,7 +58,15 @@ The metadata for the Group page *mostly* consists of links to Web
 feeds. These are organised by the viewlet manager
 ``gs.group.home.interfaces.IGroupHomepageMetadata`` — the simplest of 
 viewlet-managers: it just renders each viewlet (in order) without any
-additional HTML.
+additional HTML::
+
+  <browser:viewlet name="gs-group-messages-topics-link"
+    manager="gs.group.home.interfaces.IGroupHomepageMetadata"
+    template="browser/templates/link.pt"
+    class="gs.group.home.simpletab.PublicTab"
+    permission="zope2.View"
+    weight="10"
+    title="Topics Link" />
 
 Information
 ===========
@@ -62,7 +86,15 @@ Information*.  The information tabs tells the user general information
 about the group: what the group is for, and the main activity in the group.
 
 To add a tab to the info tabs create a *viewlet* that has
-``gs.group.home.interfaces.IGroupHomepageMain`` as the manager.
+``gs.group.home.interfaces.IGroupHomepageMain`` as the manager::
+
+  <browser:viewlet
+    name="gs-group-messages-base" 
+    manager="gs.group.home.interfaces.IGroupHomepageMain"
+    class="gs.group.home.simpletab.PublicTab"
+    template="browser/templates/main.pt"
+    weight="50"
+    permission="zope2.View"/>
 
 Secondary Information
 ---------------------
@@ -72,39 +104,17 @@ Information* area. It is normally formatted as a narrow strip (15.5 units
 wide).
 
 To add a tab to the task tabs create a *viewlet* that has
-``gs.group.home.interfaces.IGroupHomepageSecondary`` as the manager.
+``gs.group.home.interfaces.IGroupHomepageSecondary`` as the manager::
 
-This module provides an *Administration* tab, which sits within the Task
-Tabs. The *Admin* tab provides the `administration links`_.
+  <browser:viewlet
+    name="gs-group-member-base-logged-in-member-info"
+    manager="gs.group.home.interfaces.IGroupHomepageSecondary" 
+    class=".memberinfo.LoggedInMemberInfo"
+    template="browser/template/loggedinmemberinfo.pt"
+    permission="zope2.View" 
+    title="Membership Information"
+    weight="10" />
 
-Administration Links
-~~~~~~~~~~~~~~~~~~~~
-
-The **Admin** tab contains links to many of the administration functions
-within a group. The tab is a viewlet, sitting inside the `secondary
-information`_. However, the tab is also a *viewlet manager*: it contains
-viewlets that link to the administration pages.
-
-To add a link to the administration links create a viewlet that has
-``gs.group.home.interfaces.IGroupHomepageAdminLinks`` as the manager. The
-class ``gs.group.member.base.viewlet.GroupAdminViewlet`` provides a
-good base class for the viewlet. The viewlet itself should provide a
-list-item element (``<li>``) to appear in the tab.
-
-To further complicate things, the ``gs.group.properties.base`` module
-defines a viewlet that contains *another* viewlet manager. This allows
-the links related to the properties of the group to be clustered
-together.
-
-The viewlets that provide the administration should be shown to the
-correct *type* of administrator. In GroupServer there are three types
-of administrator.
-
-1. A **group administrator** only changes the membership of people.
-2. A **site administrator** can change the membership of people, change
-   the properties of a group, and start a new group.
-3. A **manager** is the GroupServer of a super-user. In the context of
-   a group a manager has the same powers as a site administrator.
 
 Scripts
 =======
@@ -113,7 +123,16 @@ Some of the content of the Group page may need JavaScript support. The
 viewlets that supply the scripts are rendered by the 
 ``gs.group.home.interfaces.IGroupHomepageScripts`` viewlet manager.
 Like the manager for the `metadata links`_, the scripts manager renders
-each viewlet (in order) without any additional HTML.
+each viewlet (in order) without any additional HTML::
+
+  <browser:viewlet 
+    name="gs-group-messages-topics-tab-script"
+    manager="gs.group.home.interfaces.IGroupHomepageScripts"
+    template="browser/templates/topicstab-js.pt"
+    class="gs.group.home.simpletab.PublicTab"
+    permission="zope2.Public"
+    weight="10"
+    title="Topics" />
 
 =======
 Testing
@@ -193,7 +212,12 @@ Resources
 - Questions and comments to http://groupserver.org/groups/development
 - Report bugs at https://redmine.iopen.net/projects/groupserver
 
-.. _GroupServer: http://groupserver.org
+.. _GroupServer: http://groupserver.org/
+.. _GroupServer.org: http://groupserver.org/
+.. _OnlineGroups.Net: https://onlinegroups.net
+.. _Michael JasonSmith: http://groupserver.org/p/mpj17
+.. _Creative Commons Attribution-Share Alike 3.0 New Zealand License:
+   http://creativecommons.org/licenses/by-sa/3.0/nz/
 .. _viewlets: http://docs.zope.org/zope.viewlet
 .. _jQuery.UI: http://jqueryui.com
 
