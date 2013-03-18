@@ -1,7 +1,7 @@
 # coding=utf-8
 from zope.cachedescriptors.property import Lazy
 from zope.component import createObject
-from Products.GSGroupMember.groupmembership import user_member_of_group
+from gs.group.member.base import user_member_of_group
 from gs.group.base import GroupViewlet
 
 
