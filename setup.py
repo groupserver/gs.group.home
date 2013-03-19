@@ -49,4 +49,3 @@ setup(name='gs.group.home',
     entry_points="""
     # -*- Entry points: -*-
     """,)
-
