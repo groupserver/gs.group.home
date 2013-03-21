@@ -13,8 +13,6 @@ The GroupServer Group Page
   `Creative Commons Attribution-Share Alike 3.0 New Zealand License`_
   by `OnlineGroups.Net`_.
 
-
-============
 Introduction
 ============
 
@@ -22,7 +20,6 @@ This module mostly provides support for the `group page`_ for
 GroupServer_ groups. Because the page is used by so many different types
 of people for different things testing_ is difficult.
 
-==========
 Group Page
 ==========
 
@@ -52,7 +49,7 @@ viewlet managers is shown below::
   └────────────────────────────────────────────────────────────────────────┘
 
 Metadata Links
-==============
+--------------
 
 The metadata for the Group page *mostly* consists of links to Web 
 feeds. These are organised by the viewlet manager
@@ -69,7 +66,7 @@ additional HTML::
     title="Topics Link" />
 
 Information
-===========
+-----------
 
 There are two sets of information on the homepage: the `main information`_
 and the `secondary information`_.  Both are handled by *viewlet managers*,
@@ -79,7 +76,7 @@ with the blocks of information provided by viewlets_.
        that of the viewlet you wish to overwrite.
 
 Main Information
-----------------
+~~~~~~~~~~~~~~~~
 
 The main portion of the page (33 units wide) is taken up by the *Main
 Information*.  The information tabs tells the user general information
@@ -97,7 +94,7 @@ To add a tab to the info tabs create a *viewlet* that has
     permission="zope2.View"/>
 
 Secondary Information
----------------------
+~~~~~~~~~~~~~~~~~~~~~
 
 Less important information about the group appears in the *Secondary
 Information* area. It is normally formatted as a narrow strip (15.5 units
@@ -117,7 +114,7 @@ To add a tab to the task tabs create a *viewlet* that has
 
 
 Scripts
-=======
+-------
 
 Some of the content of the Group page may need JavaScript support. The
 viewlets that supply the scripts are rendered by the 
@@ -134,7 +131,6 @@ each viewlet (in order) without any additional HTML::
     weight="10"
     title="Topics" />
 
-=======
 Testing
 =======
 
@@ -196,7 +192,7 @@ D
   to post.
 
 Todo
-====
+----
 
 * Add site-admin-non-member and manager-non-member columns.
 * Write down what to test.
@@ -204,7 +200,6 @@ Todo
 * Update the help so it matches the test.
 * Automate the test.
 
-=========
 Resources
 =========
 
