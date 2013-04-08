@@ -14,15 +14,6 @@
     template="browser/templates/simplemanager.pt"
     permission="zope2.View" />
 
-  <browser:viewlet 
-    name="gs-group-home-stats"
-    manager=".interfaces.IGroupHomepageMain"
-    class=".stats.GroupStats"
-    template="browser/templates/stats.pt"
-    permission="zope2.View"
-    weight="10"
-    title="Statistics" />
-
   <browser:viewletManager
     name="groupserver.GroupHomepageSecondary"
     for="gs.group.base.interfaces.IGSGroupMarker"
