@@ -4,12 +4,12 @@
       metal:use-macro="context/@@groupserver_layout/page">
   <head>
     <title metal:fill-slot="title">
-      <tal:block 
+      <tal:block
         replace="string:${view/groupInfo/name}: ${view/siteInfo/name}"/>
     </title>
     <!--TODO: Metadata-->
     <tal:block metal:fill-slot="metadata">
-      <link rel="up" href="/" title="Site Home" 
+      <link rel="up" href="/" title="Site Home"
             tal:attributes="title string:${view/siteInfo/name} Home;"/>
       <tal:block
         replace="structure provider:groupserver.GroupHomepageMetadata">
@@ -26,7 +26,7 @@
         </a>
       </li>
       <li>
-        <span class="group" 
+        <span class="group"
               tal:content="view/groupInfo/name">This group</span>
       </li>
     </ul>
@@ -34,13 +34,13 @@
          aria-labelledby="gs-group-home-h"
          metal:fill-slot="body">
       <div class="main">
-        <h1 id="gs-group-home-h" class="fn" 
+        <h1 id="gs-group-home-h" class="fn"
             tal:content="view/groupInfo/name">Group</h1>
         <p tal:replace="structure provider:groupserver.GroupHomepageMain">
           I am a fish.
         </p>
       </div><!--main-->
-      <div class="secondary small" 
+      <div class="secondary small"
            tal:content="structure provider:groupserver.GroupHomepageSecondary">
         I like to swim in the sea.
       </div><!--secondary-->
@@ -52,4 +52,3 @@
     </tal:block>
   </body>
 </html>
-
