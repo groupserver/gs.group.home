@@ -1,11 +1,19 @@
-# coding=utf-8
-"""Interfaces for the the help viewlets pages."""
-from zope.contentprovider.interfaces import IContentProvider
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+# Copyright © 2013 OnlineGroups.net and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
 from zope.interface.interface import Interface
-from zope.schema import Text, ASCIILine
 from zope.viewlet.interfaces import IViewletManager
-from Products.XWFCore.XWFUtils import abscompath
-import gs.group.home
 
 
 class IGroupHomepageMetadata(IViewletManager):
@@ -33,6 +41,7 @@ class IGroupHomepageAdmin(IViewletManager):
     pass
 
 # Legacy
+
 
 class IChangeAbout(Interface):
     pass
