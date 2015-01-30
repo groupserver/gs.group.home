@@ -1,32 +1,40 @@
-===================
+=================
 ``gs.group.home``
-===================
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-The GroupServer Group Page
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+=================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The page for a GroupServer group
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 :Author: `Michael JasonSmith`_
 :Contact: Michael JasonSmith <mpj17@onlinegroups.net>
-:Date: 2013-03-18
+:Date: 2015-01-30
 :Organization: `GroupServer.org`_
 :Copyright: This document is licensed under a
-  `Creative Commons Attribution-Share Alike 3.0 New Zealand License`_
-  by `OnlineGroups.Net`_.
+  `Creative Commons Attribution-Share Alike 4.0 International License`_
+  by `OnlineGroups.net`_.
+
+..  _Creative Commons Attribution-Share Alike 4.0 International License:
+    http://creativecommons.org/licenses/by-sa/4.0/
 
 Introduction
 ============
 
 This module mostly provides support for the `group page`_ for
-GroupServer_ groups. Because the page is used by so many different types
-of people for different things testing_ is difficult.
+GroupServer_ groups. Because the page is used by so many
+different types of people for different things testing_ is
+difficult.
 
-Group Page
+Group page
 ==========
 
-The group page is mostly made up of *five* viewlet managers, which other
-products fill. Two managers provide spaces for the information_ about the
-group. Finally, two more provide the `metadata links`_ and scripts_ area
-that support the other content providers. The arrangement of the five
+Most of the content for the *Group* page is provided by external
+product.s The group page itself (``index.html`` in the group
+context) is mostly made up of *five* viewlet managers, which
+other products fill. Two managers provide spaces for the
+information_ about the group. One provides space for information
+and links concerning the administrators.  Finally, two more
+viewlets provide the `metadata links`_ and scripts_ area that
+support the other content providers. The arrangement of the five
 viewlet managers is shown below::
 
   ┌Page────────────────────────────────────────────────────────────────────┐
@@ -38,8 +46,8 @@ viewlet managers is shown below::
   │││Main information               │Secondary information               │││
   │││.interfaces.IGroupHomepageMain │.interfaces.IGroupHomepageSecondary │││
   │││                               │┌──────────────────────────────────┐│││
-  │││                               ││Admin Tab                         ││││
-  │││                               ││IGroupHomepageAdminLinks          ││││
+  │││                               ││Admin area                        ││││
+  │││                               ││IGroupHomepageAdmin               ││││
   │││                               │└──────────────────────────────────┘│││
   ││└───────────────────────────────┴────────────────────────────────────┘││
   │└──────────────────────────────────────────────────────────────────────┘│
@@ -48,14 +56,16 @@ viewlet managers is shown below::
   │└──────────────────────────────────────────────────────────────────────┘│
   └────────────────────────────────────────────────────────────────────────┘
 
-Metadata Links
+Metadata links
 --------------
 
-The metadata for the Group page *mostly* consists of links to Web 
+The metadata for the Group page *mostly* consists of links to Web
 feeds. These are organised by the viewlet manager
-``gs.group.home.interfaces.IGroupHomepageMetadata`` — the simplest of 
-viewlet-managers: it just renders each viewlet (in order) without any
-additional HTML::
+``gs.group.home.interfaces.IGroupHomepageMetadata`` — the
+simplest of viewlet-managers: it just renders each viewlet (in
+order) without any additional HTML:
+
+.. code-block:: xml
 
   <browser:viewlet name="gs-group-messages-topics-link"
     manager="gs.group.home.interfaces.IGroupHomepageMetadata"
@@ -68,22 +78,26 @@ additional HTML::
 Information
 -----------
 
-There are two sets of information on the homepage: the `main information`_
-and the `secondary information`_.  Both are handled by *viewlet managers*,
-with the blocks of information provided by viewlets_.
+There are two sets of information on the homepage: the `main
+information`_ and the `secondary information`_.  Both are handled
+by *viewlet managers*, with the blocks of information provided by
+viewlets_.
 
-:Note: To over-ride an existing tab, change the ``name`` of the viewlet to
-       that of the viewlet you wish to overwrite.
+:Note: To over-ride an existing tab, change the ``name`` of the
+       viewlet to that of the viewlet you wish to overwrite.
 
-Main Information
+Main information
 ~~~~~~~~~~~~~~~~
 
-The main portion of the page (33 units wide) is taken up by the *Main
-Information*.  The information tabs tells the user general information
-about the group: what the group is for, and the main activity in the group.
+The main portion of the page (33 units wide) is taken up by the
+*Main Information*.  The information tabs tells the user general
+information about the group: what the group is for, and the main
+activity in the group.
 
 To add a tab to the info tabs create a *viewlet* that has
-``gs.group.home.interfaces.IGroupHomepageMain`` as the manager::
+``gs.group.home.interfaces.IGroupHomepageMain`` as the manager:
+
+.. code-block:: xml
 
   <browser:viewlet
     name="gs-group-messages-base" 
@@ -93,15 +107,18 @@ To add a tab to the info tabs create a *viewlet* that has
     weight="50"
     permission="zope2.View"/>
 
-Secondary Information
+Secondary information
 ~~~~~~~~~~~~~~~~~~~~~
 
-Less important information about the group appears in the *Secondary
-Information* area. It is normally formatted as a narrow strip (15.5 units
-wide).
+Less important information about the group appears in the
+*Secondary Information* area. It is normally formatted as a
+narrow strip (15.5 units wide).
 
 To add a tab to the task tabs create a *viewlet* that has
-``gs.group.home.interfaces.IGroupHomepageSecondary`` as the manager::
+``gs.group.home.interfaces.IGroupHomepageSecondary`` as the
+manager:
+
+.. code-block:: xml
 
   <browser:viewlet
     name="gs-group-member-base-logged-in-member-info"
@@ -116,11 +133,14 @@ To add a tab to the task tabs create a *viewlet* that has
 Scripts
 -------
 
-Some of the content of the Group page may need JavaScript support. The
-viewlets that supply the scripts are rendered by the 
-``gs.group.home.interfaces.IGroupHomepageScripts`` viewlet manager.
-Like the manager for the `metadata links`_, the scripts manager renders
-each viewlet (in order) without any additional HTML::
+Some of the content of the Group page may need JavaScript
+support. The viewlets that supply the scripts are rendered by the
+``gs.group.home.interfaces.IGroupHomepageScripts`` viewlet
+manager.  Like the manager for the `metadata links`_, the scripts
+manager renders each viewlet (in order) without any additional
+HTML:
+
+.. code-block:: xml
 
   <browser:viewlet 
     name="gs-group-messages-topics-tab-script"
@@ -134,11 +154,11 @@ each viewlet (in order) without any additional HTML::
 Testing
 =======
 
-To test that the homepage works the following user-and group states must
-checked against the correct functioning of the homepage. The correct
-functioning of the homepage is described in the user-help. (For a secret
-group the anonymous and non-members should not even see the group,
-so those tests are marked ``—``.)
+To test that the homepage works the following user-and group
+states must checked against the correct functioning of the
+homepage. The correct functioning of the homepage is described in
+the user-help. (For a secret group the anonymous and non-members
+should not even see the group, so those tests are marked ``—``.)
 
 +---------+---------+-------+-------+---------+--------+-------+-------+
 |         | Manager | Site  | Group | Posting | Normal | Non-  | Anon  |
@@ -153,43 +173,48 @@ so those tests are marked ``—``.)
 | Secret  | ✓  | ✓  | ✓ | ✓ | ✓ | ✓ | ✓  | —  | ✓ | ✓  | — | — | — | — |
 +---------+----+----+---+---+---+---+----+----+---+----+---+---+---+---+
 
-Manager
-  A person with the ``manager`` role. Such people should be able to see
-  and change everything, but not post unless he or she is a member.
+Manager:
+  A person with the ``manager`` role. Such people should be able
+  to see and change everything, but not post unless he or she is
+  a member.
   
-Site Admin
-  A person with the ``DivisionAdmin`` role. A site administrator should
-  be able to see the group, change all the permissions to do with the
-  group, and alter the membership of the group. A site administrator
-  can only post if he or she is a member of the group.
+Site Admin:
+  A person with the ``DivisionAdmin`` role. A site administrator
+  should be able to see the group, change all the permissions to
+  do with the group, and alter the membership of the group. A
+  site administrator can only post if he or she is a member of
+  the group.
 
-Group Admin
-  A person with the ``GroupAdmin`` role. A group administrator should
-  be able to see the group, and change the membership of the group.
+Group Admin:
+  A person with the ``GroupAdmin`` role. A group administrator
+  should be able to see the group, and change the membership of
+  the group.
   
-Posting Member
-  In announcement groups a posting member should be able to see the
-  group, start new topics and post to existing topics.
+Posting Member:
+  In announcement groups a posting member should be able to see
+  the group, start new topics and post to existing topics.
 
-Member
-  A member should be able to view the group and topics. In addition he
-  or she can start a topic or post to a topic in a discussion group.
+Member:
+  A member should be able to view the group and topics. In
+  addition he or she can start a topic or post to a topic in a
+  discussion group.
 
-Non-Member
+Non-Member:
   A non-member may or may not be able to view a group and topics,
   depending on the group privacy.
   
-Anonymous
-  Someone who is not logged in (anonymous) may or may not be able to 
-  view a group and topics, depending on the group privacy.  
+Anonymous:
+  Someone who is not logged in (anonymous) may or may not be able
+  to view a group and topics, depending on the group privacy.
 
-A
-  Announcement group. Only some people can post to an announcement
-  group. These people are known as *posting members*.
+A:
+  Announcement group. Only some people can post to an
+  announcement group. These people are known as *posting
+  members*.
 
-D
-  Discussion group. Every member of a discussion group should be able
-  to post.
+D:
+  Discussion group. Every member of a discussion group should be
+  able to post.
 
 Todo
 ----
@@ -203,7 +228,7 @@ Todo
 Resources
 =========
 
-- Code repository: https://source.iopen.net/groupserver/gs.group.home
+- Code repository: https://github.com/groupserver/gs.group.home
 - Questions and comments to http://groupserver.org/groups/development
 - Report bugs at https://redmine.iopen.net/projects/groupserver
 
@@ -211,8 +236,4 @@ Resources
 .. _GroupServer.org: http://groupserver.org/
 .. _OnlineGroups.Net: https://onlinegroups.net
 .. _Michael JasonSmith: http://groupserver.org/p/mpj17
-.. _Creative Commons Attribution-Share Alike 3.0 New Zealand License:
-   http://creativecommons.org/licenses/by-sa/3.0/nz/
 .. _viewlets: http://docs.zope.org/zope.viewlet
-.. _jQuery.UI: http://jqueryui.com
-
