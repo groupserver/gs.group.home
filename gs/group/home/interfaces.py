@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-##############################################################################
+############################################################################
 #
-# Copyright © 2013 OnlineGroups.net and Contributors.
+# Copyright © 2010, 2012, 2013, 2015 OnlineGroups.net and Contributors.
 # All Rights Reserved.
 #
 # This software is subject to the provisions of the Zope Public License,
@@ -11,7 +11,8 @@
 # WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
 # FOR A PARTICULAR PURPOSE.
 #
-##############################################################################
+############################################################################
+from __future__ import unicode_literals
 from zope.interface.interface import Interface
 from zope.viewlet.interfaces import IViewletManager
 
@@ -30,7 +31,7 @@ class IGroupHomepageMessages(IViewletManager):
 
 
 class IGroupHomepageSecondary(IViewletManager):
-    '''A viewlet manager for the secondary information on the group homepage'''
+    'A viewlet manager for the secondary information on the group homepage'
 
 
 class IGroupHomepageScripts(IViewletManager):

@@ -1,4 +1,18 @@
-# coding=utf-8
+# -*- coding: utf-8 -*-
+############################################################################
+#
+# Copyright © 2010, 2013, 2015 OnlineGroups.net and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+############################################################################
+from __future__ import unicode_literals
 from zope.cachedescriptors.property import Lazy
 from zope.component import createObject
 from gs.group.member.base.utils import user_member_of_group
@@ -23,9 +37,9 @@ class UserInfoTab(GroupViewlet):
     @Lazy
     def canJoin(self):
         mailingListInfo = createObject('groupserver.MailingListInfo',
-                                        self.context)
+                                       self.context)
         retval = not(self.isMember) and \
-                    mailingListInfo.get_property('subscribe')
+            mailingListInfo.get_property('subscribe')
         return retval
 
 
