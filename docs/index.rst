@@ -1,13 +1,9 @@
-=================
-``gs.group.home``
-=================
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The page for a GroupServer group
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:mod:`gs.group.home`
+====================
 
 :Author: `Michael JasonSmith`_
 :Contact: Michael JasonSmith <mpj17@onlinegroups.net>
-:Date: 2015-01-30
+:Date: 2016-01-07
 :Organization: `GroupServer.org`_
 :Copyright: This document is licensed under a
   `Creative Commons Attribution-Share Alike 4.0 International License`_
@@ -16,11 +12,24 @@ The page for a GroupServer group
 ..  _Creative Commons Attribution-Share Alike 4.0 International License:
     http://creativecommons.org/licenses/by-sa/4.0/
 
-Introduction
-============
+Contents:
 
-This module mostly provides support for the *group page* for
+.. toctree::
+   :maxdepth: 2
+
+   page
+   testing
+   HISTORY
+
+This module mostly provides support for the :doc:`page` for
 GroupServer_ groups.
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
 
 Resources
 =========
@@ -35,4 +44,3 @@ Resources
 .. _GroupServer.org: http://groupserver.org/
 .. _OnlineGroups.Net: https://onlinegroups.net
 .. _Michael JasonSmith: http://groupserver.org/p/mpj17
-.. _viewlets: http://docs.zope.org/zope.viewlet
