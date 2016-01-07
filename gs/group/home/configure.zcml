@@ -42,7 +42,7 @@
     class="gs.group.base.GroupViewlet"
     template="browser/templates/admin.pt"
     permission="zope2.ManageUsers"
-    weight="100"
+    weight="15"
     title="Admin" />
   <browser:viewletManager
     name="groupserver.GroupHomepageAdmin"
