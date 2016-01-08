@@ -1,13 +1,14 @@
 Changelog
 =========
 
-4.0.3 (2016-01-07)
+4.0.3 (2016-01-08)
 ------------------
 
 * Moving the *Admin* area towards the top, so it is unmoved by
   the dynamic elements (such as the *Recently active* list and
   the *Recent files* list).
 * Moving the documentation to Read the Docs
+* Adding unit tests
   
 4.0.2 (2014-09-17)
 ------------------
