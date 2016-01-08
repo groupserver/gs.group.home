@@ -1,6 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="gs.group.home"
       metal:use-macro="context/@@groupserver_layout/page">
   <head>
     <title metal:fill-slot="title">
@@ -19,11 +21,11 @@
   </head>
   <body>
     <ul metal:fill-slot="breadcrumb">
-      <li>
-        <a href="/" class="icon-alone">
+      <li class="site">
+        <a href="/" title="Site homepage" class="icon-alone">
           <span aria-hidden="true" data-icon="&#x2302;"></span>
-          <span class="screen-reader-text">Site home page</span>
-        </a>
+          <span class="screen-reader-text"
+                i18n:translate="site-home"><span class="site" i18n:name="siteName"/> Homepage</span></a>
       </li>
       <li>
         <span class="group"

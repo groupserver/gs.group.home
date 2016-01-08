@@ -1,6 +1,9 @@
-<div id="gs-group-home-admin">
-  <h3>Admin</h3>
-   <p 
+<div id="gs-group-home-admin"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="gs.group.home">
+  <h3 i18n:translate="admin-viewlet-heading">Admin</h3>
+   <p
     tal:replace="structure provider:groupserver.GroupHomepageAdmin">
      Administration stuff goes here.
    </p>

@@ -7,6 +7,7 @@ Changelog
 * Moving the *Admin* area towards the top, so it is unmoved by
   the dynamic elements (such as the *Recently active* list and
   the *Recent files* list).
+* Adding i18n support
 * Moving the documentation to Read the Docs
 * Adding unit tests
   
