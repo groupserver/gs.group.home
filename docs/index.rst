@@ -34,7 +34,7 @@ Indices and tables
 Resources
 =========
 
-- Documentation: http://readthedocs.org/groupserver/gsgrouphome
+- Documentation: http://readthedocs.io/groupserver/gsgrouphome
 - Code repository: https://github.com/groupserver/gs.group.home
 - Questions and comments to
   http://groupserver.org/groups/development
