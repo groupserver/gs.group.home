@@ -26,7 +26,7 @@ Resources
 =========
 
 
-- Documentation: http://readthedocs.org/groupserver/gsgrouphome
+- Documentation: http://readthedocs.io/groupserver/gsgrouphome
 - Translations:
   https://www.transifex.com/projects/p/gs-group-home/
 - Code repository: https://github.com/groupserver/gs.group.home
